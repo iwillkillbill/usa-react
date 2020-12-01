@@ -112,6 +112,9 @@ html > body {
         left: 0px;
   }
   
+  #root {
+    position: relative;
+  }
   /******************************************************************
   /********************* END OF TAG PROPERTIES **********************/
   
@@ -120,9 +123,11 @@ html > body {
   /****************************************************************/
   /* Main content boxes */
   div#main, div#main-longform {
+    position: absolute;
         background: #FFFFFF;
         font-family: sans-serif, arial, verdana, helvetica, georgia;
         font-size: 13px;
+        height: 100%;
         width: 100%;
         text-align: left;
         margin: 0em 0em 0em 0em;
@@ -820,8 +825,9 @@ html > body {
     border-top: 1px solid #999999;
     clear: both;
     height: 5em;
-    width: 803px;
-    margin: 0px 45px 0px 49px;
+
+    width: 1500px;
+    margin: 0px;
   }
   
   div.footerBar li {
@@ -2172,4 +2178,19 @@ table th[class*="col-"] {
         
         .toast.active {
           transform: translateY(0);
+        }
+
+        div.footerBar {
+          text-align: center;
+          color: #000000;
+          font-family: sans-serif, arial, verdana, helvetica, georgia;
+          font-size: 13px;
+          padding: 0px;
+          overflow: hidden;
+          border-top: 1px solid #999999;
+          clear: both;
+          height: 5em;
+      transform: translateX(100px);
+          width: 90%;
+          margin: 0;
         }

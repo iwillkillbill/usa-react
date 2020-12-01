@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Redirect, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import './index.css'
 
 const ID = () => {
@@ -1429,7 +1429,7 @@ if (top != self) {
 </p>
 </div>
 	</div>
-    // {/* <!-- The Modal -->  */}
+ {/* <!-- The Modal -->  */}
 
 
  
