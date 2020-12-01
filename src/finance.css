@@ -1,0 +1,1761 @@
+/*
+      IMPORTANT!!
+      
+      Changes to .access-label, .access-link, .headerBar, .login-content, #main, all Profile positioning,
+      and BODY require special
+      attention due to IE/Mozilla differences
+*/
+
+/* Cascading Style Sheet for IRS Website for non-IE browsers */
+
+/******************************************************************
+/************************ TAG PROPERTIES **************************/
+/* What about the font type? Where is that handled? See div#main */
+html > body {
+  /*    font-size: 1%; */
+        color: #000000;
+        text-align: -moz-center; /*               background-color:#acacac; */
+        /*background-color: #ffffff; /*     width: 994px; */ /*     width: 894px; */
+        margin: 0px;
+        background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE);
+        background: linear-gradient(to bottom, #FFFFFF, #EEEEEE);
+  }
+  
+  body {
+    height: 625px;
+    overflow: auto;
+  }
+  
+  h1 {
+          white-space: nowrap;
+  }
+  
+  form {
+        margin: 0px;
+  }
+  
+  .no-underline, a.no-underline, .no-underline a {
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  sup {
+        font: normal normal 9px arial, verdana, sans-serif;
+        color: #000000;
+        margin-left: 0in;
+  }
+  
+  sub {
+        font: normal normal 12px/20px arial, verdana, sans-serif;
+        color: #000000;
+        margin-left: 0in;
+  }
+  
+  p, .fieldset { 
+        margin: 1em 0px; 
+        padding: 0px;
+  }
+  
+  .indenting {
+    text-indent: 15px;
+  }
+  
+  .indenting-margin {
+    margin-left: 16px;
+  }
+  
+  .indenting-small {
+    text-indent: 7px;
+  }
+  
+  .indenting-large {
+    text-indent: 30px;
+  }
+  
+  div.fieldset fieldset p {
+        margin: 0px; padding: 0px;
+  }
+  
+  /* Have labels be on their own lines */
+  label {
+        display: block;
+        padding-bottom: 3px;
+  }
+  
+  label .inline {
+        display: inline;
+  }
+  
+  .unbold label, label.unbold, .unbold p, p.unbold, .unbold span, span.unbold, .unbold {
+        font-weight: normal !important;
+  }
+  
+  .restore-normal-size label, label.restore-normal-size, .restore-normal-size {
+        font-family: sans-serif, arial, verdana, helvetica, georgia;
+        font-size: 13px;
+  }
+  
+  fieldset {
+        border: none;
+        padding: 0px;
+  }
+  
+  .fieldset, .fieldset-nospaces {
+        position: relative;
+        display: block;  
+  }
+        
+  
+  legend span {
+        position: absolute; 
+        top: 0px;
+        left: 0px;
+  }
+  
+  /******************************************************************
+  /********************* END OF TAG PROPERTIES **********************/
+  
+  
+  /*********************** MAIN CONTAINERS  ************************/
+  /****************************************************************/
+  /* Main content boxes */
+  div#main, div#main-longform {
+        background: #FFFFFF;
+        font-family: sans-serif, arial, verdana, helvetica, georgia;
+        font-size: 13px;
+        width: 100%;
+        text-align: left;
+        margin: 0em 0em 0em 0em;
+        overflow: hidden;
+      }
+
+#content {
+      transform: translateX(17%);
+}
+  div#main-login {
+      background: #FFFFFF;
+        font-family: sans-serif, arial, verdana, helvetica, georgia;
+        font-size: 13px;
+        width: 990px;
+        text-align: center;
+        margin: 0px 1px 0px 1px;
+  }
+  
+  div#main-login {
+    /*height: 440px;*/
+    overflow: hidden;
+  }
+  
+  
+  body > #main, body > #main-longform {
+        height: auto; min-height: 100%; 
+  }
+  
+  
+  /* End of height restriction for footer */
+  
+  div#main a, div#main-longform a, div#main-login a {
+        color: #336699;
+  }
+  
+  div#main a:hover, div#main-longform a:hover, div#main-login a:hover {
+        color: #FF6633;
+  }
+  
+  div#main a:access-nonlink, div#main-longform a:access-nonlink, div#main-login a:access-nonlink  {
+        color: black;
+        text-decoration: none;
+        border: none;     
+  }
+  
+  div#main A.help, div#main-longform A.help, div#main-login A.help {
+        text-decoration: none;
+        border-bottom:1px dashed;
+        color: #336699;
+        cursor: help;
+  }
+  
+  div#main A.help:hover, div#main-longform A.help:hover, div#main-login A.help:hover {
+        color: #FF6633;
+  }
+  
+  a.prev-next, .prev-next a, .prev-next {
+        font-family: sans-serif, arial, verdana, helvetica, georgia;
+        font-size: 11px;
+        font-weight: bold;
+  }
+  
+  a.hyperlink-image-to-button, img.hyperlink-image-to-button, .hyperlink-image-to-button {
+    border: 0px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .bold-help-link, a.bold-help-link, .bold-help-link a {
+      font-family: sans-serif, arial, georgia, verdana, serif;
+        font-weight: bold;
+        font-size: 13px;
+  }
+  
+  div#main .img-border, div#main-longform .img-border, div#main-login .img-border {
+        margin: 0px;
+        border: 2px solid #CC0000;
+  }
+  
+  div#main .img-border-black, div#main-longform .img-border-black, div#main-login .img-border-black {
+        margin: 0px;
+        border: 1px solid #000000;
+  }
+  
+  div#main p, div#main-longform p, div#main-login p {
+        /* margin: 1em 0em; */
+        padding: 0px;
+  }
+  
+  textarea#outage-textarea {
+        width: 500px; 
+        height: 180px;
+  }
+  
+  td {
+    font-family: sans-serif, arial, verdana, helvetica, georgia;
+    font-size: 13px;
+  }
+  
+  /******************END OF MAIN CONTAINER ************************/
+  /****************************************************************/
+  
+  /*************************** MORE CONTAINERS  *******************/
+  /****************************************************************/
+  div#form_content, .form_content {
+        margin-left: /*15px;*/ 0px;
+        margin-top: 0px;
+        padding-top: 0px;
+        float: left;
+  }
+  
+  div#main label, div#form-content label, div#main-longform label, .form-content label, div#main-login label {
+        margin-top: 0px;
+        padding-top: 0px;
+        font-family: sans-serif, arial, georgia, verdana, serif;
+        font-weight: bold;
+        font-size: 11px;
+        color: #000000;
+  }
+  
+  /* NEW CLASS TO MAKE STATIC TEXT LOOK LIKE A LABEL WITHOUT BEING AN ACTUAL LABEL */
+  .pseudo-label, p.pseudo-label, .pseudo-label p, span.pseudo-label, .pseudo-label span {
+    display: block;
+    padding-bottom: 3px;
+    margin-top: 0px;
+    padding-top: 0px;
+    font-family: sans-serif, arial, georgia, verdana, serif;
+    font-weight: bold;
+    font-size: 11px;
+    color: #000000;
+  }
+  
+  div#form-content label, .form-content label {
+       float: left;
+        margin-left: 15px;
+  }
+  
+  div#main-longform label {
+        margin-left: 0px;
+  }
+  
+  div.content, div#content {
+      width: 100%;
+      /* height: 100%; */
+      margin: auto auto;
+      /* padding-bottom: 0em;  NEW FOR FOOTER FOR R2.0 */
+  }
+  
+  div.login-content, div#login-content {
+     width: /*800px*/auto;
+      /*height: 270px;*/
+      /*margin: 0px 27px 40px;*/
+      margin-right: 9px;
+      margin-left: 3px;
+      text-align: left;
+      /*margin-left: 100px;*/
+      padding-left: 16px;
+  }
+  
+  div.signup-content, div#signup-content {
+    width: 250px;
+    margin: 0px 20px 0px 40px;
+    text-align: left;
+  }
+  
+  
+  div#error_message, div.instruction {
+        margin-left: /* 15px; /* from 20px */ 0px;
+        clear: both;
+  }
+  
+  div#error_message, div.error-message, p.error-message, span.error-message, a.error-message {
+        font-family: sans-serif, arial, georgia, verdana, serif;
+        font-weight: bold;
+        font-size: 13px !important;
+        color: #CC0000 !important;
+  }
+  
+  div.instruction {
+        margin-top: 10px;
+        margin-bottom: 4px;
+  }
+  
+  div.instruction.label-like {
+    margin-top: 0px;
+    padding-top: 0px;
+    font-family: sans-serif, arial, georgia, verdana, serif;
+    font-weight: bold;
+    font-size: 11px;
+    color: #000000;
+  }
+  
+  p.nospaces, div.nospaces,
+  div.fieldset fieldset p {
+        margin: 0px; padding: 0px;
+  }
+  
+  div#main ul, .nospaces,
+  div#main-login ul, .nospaces,
+  div#main-longform ul, .nospaces {
+        color: #000000;
+        padding: 0px;
+        margin: 0px;
+  }
+  
+  div#main li,
+  div#main-login li,
+  div#main-longform li {
+        font-family: sans-serif, arial, verdana, helvetica, georgia;
+        font-size: 12px;
+        margin-top: 0px;
+        margin-left: 20px;
+  }
+  
+  div.warning {
+        font-size: 9px;
+        clear: both;
+        width: 95%;
+        margin: 12px 0px;
+  }
+  
+  /******************** END OF MORE CONTAINERS  *******************/
+  /****************************************************************/
+  
+  
+  /***************************************************************************
+  ********************* GENERAL UTLITY CLASSES ******************************/
+  /* For now, I'll leave the span.title, and simple add h1. 
+   * We should gradually replace all the title spans with h1 */ 
+  h1, span.title {
+        font-family: sans-serif, arial, georgia, verdana, serif;
+        font-size: 22px;
+        /*font-weight: bold;*/
+        color: #666666;
+        display: block;
+        padding-left: 15px;
+        margin-bottom: 10px;
+  }
+  
+  h1, span.inner-title {
+        font-family: sans-serif, arial, georgia, verdana, serif;
+        font-size: 22px;
+        /*font-weight: bold;*/
+        color: #666666;
+        display: block;
+        padding-left: 0px;
+        margin-bottom: 10px;
+  }
+  
+  h2.title {
+        font-family: sans-serif, arial, georgia, verdana, serif;
+        font-size: 16px;
+        font-weight: bold;
+        color: #FF3300;
+        display: block;
+        padding-left: 0px;
+        margin-bottom: 10px;
+  }
+  
+  h2, span.subtitle {
+        padding-top: 5px;
+        margin-bottom: 5px;
+        font-size: 13px;
+        font-weight: bold;
+  }
+  
+  
+  /* Currently not used. Opted to use
+  * the <p> tag instead */
+  div.field {
+        width: 200px;
+        display: block;
+        float: left;
+  }
+  
+  /* use the left side of the div as vertical bar. 
+     It has 0px for margin-left because the contents
+     are padded on the left side. */
+  div.login-vert-bar {
+        border-left-style: solid;
+        border-left-width: 1.8px;
+        color: #CCCCCC;
+        width: 1px;
+        height: 165px;
+        margin-left: 0px;
+        float: left;
+  }
+  
+  div.login-field {
+        width: /*auto*/ 400px;
+        display: block;
+        float: left;
+  }
+  
+  div.block-login-field {
+      width: 400px;
+        display: block;
+        float: left;
+  }
+  
+  div.login-field label, div.block-login-field label {
+        font-family: sans-serif, arial, verdana, helvetica, georgia;
+        font-weight: bold;
+        font-size: 11px;
+  }
+  
+  /* These three share the same right-margin for balance */ 
+  div.login-field, div.block-login-field, div.login-vert-bar {
+        margin-right: 12px;
+  }
+  
+  div.small-field-nosize {
+        float: left; 
+        padding-right: 10px;
+  }
+  
+  div.small-field {
+        float: left;
+  }
+  
+  /* SPECIALIZED INPUT TEXT FIELD COLORATION */
+  .grayed, input.grayed, .grayed input {
+    color: #999999;
+  }
+  
+  /* default button style: adds top margin */
+  input.button {
+        margin-top: 15px; 
+  }
+  
+  input.button-width, input.button  {
+        width: 80px;
+  }
+  
+  /* when we need button to simply fit caption */
+  input.button-autosize, input.button-nosize {
+        width: auto;
+  }
+  
+  /* could generalize this class for any elem */
+  input.no-vertical-spaces {
+        top: 0px; bottom: 0px;
+  }
+  
+  /* default button styling */
+  input.button-style, input.button, input.button-nosize, 
+  input.no-vertical-spaces, input.button-width {
+        border: 1px solid #A6A6A6;
+        clear: left;
+        margin-right: 5px; margin-left: 0px;
+  }
+  
+  /* default style for input text boxes and select combo boxes */ 
+  input.textbox-nosize, input.textbox-autosize, .textbox, .input-text-login-style, 
+  .select-login-style, .select-style, input.long-textbox, select.long-select-style {
+        height: 22px;
+        border: 1px solid #A6A6A6;
+        font-size: 13px;
+        font-family: sans-serif, arial, verdana, helvetica, georgia;
+  }
+  
+  /* R2.0 Remove all instances of focused borders around input images */
+  input {
+    border: none;
+  }
+  
+  input:focus {
+    /*outline: none;*/
+  }
+  
+  /* R2.3 P. POWELL: REMOVE EARLIER RESTRICTION FOR OUTLINING FOR ALL INPUT FIELDS PER IRAP DIRECTIVE */
+  input[type="checkbox"]:focus {
+    outline: 1px dotted #000000 !important;
+  }
+  
+  input.textbox, input.input-text-login-style {
+        /*width: 25em;*/
+        width: 184px;
+        height: 22px;
+  } /* text box default length */
+  
+  input.textbox-readonly, select.select-readonly, input.textbox-readonly-nolock,
+  select.textbox-readonly-nolock /* For read-only text fields */ {
+        color: #666666;
+  }
+  
+  input.textbox-readonly {
+        /* background: #F7F7F7 url('https://sa.www4.irs.gov/eauth/pub/common/images/icon_lock.gif') no-repeat center right; */
+  }
+  
+  select.select-readonly {
+        /* background: #F7F7F7 url('https://sa.www4.irs.gov/eauth/pub/common/images/icon_lock.gif') no-repeat top right; */
+  }
+  
+  input.textbox-readonly-nolock, select.select-readonly-nolock {
+        background: #F7F7F7;
+  }
+  
+  select.select-login-style, select.select-style {
+        width: auto;
+  }
+  
+  input.long-textbox {
+        width: 25em;
+  } /* set to default as well */
+  
+  input.checkbox, inbux.radiobox {
+        border: none;
+  }
+  
+  input.submit-style {
+        font-family: helvetica, georgia, arial, verdana, sans-serif;
+  }
+  
+  .sub-header-font {
+        /*color: #696969;*/
+        color: #000000;
+  }
+  
+  .instruction-text {
+        display: block;
+  }
+  
+  .outage-text, .notification-text, .sub-header-alt,
+  p.outage-text, outage-text p, span.outage-text, outage-text span,
+  a.outage-text, outage-text a, p.notification-text,
+  .notification-text p, span.notification-text, .notificaton-text span,
+  a.notification-text, .notification-text a {
+        color: #FF6600 !important;
+        font-weight: bold;
+        display: block;
+  }
+  
+  .sub-header-error, p.sub-header-error, .sub-header-error p,
+  span.sub-header-error, .sub-header-error span, a.sub-header-error,
+  .sub-header-error a {
+        font-family: sans-serif, arial, georgia, verdana, serif;
+        font-size: 11px;
+        color: #CC0000 !important;
+        font-weight: bold;
+        display: block;
+  }
+  
+  .error-message-link, a.error-message-link, .error-message-link a {
+        color: #336699 !important;
+        text-decoration: underline !important;
+  }
+  
+  .error-message-link a:hover {
+        color: #FF6633 !important;
+  }
+  
+  .vertical-align-middle, .vertical_align_middle {
+        vertical-align: middle;
+  }
+  
+  .text-align-center {
+        text-align: center;
+  }
+  
+  .align-right {
+        text-align: right;
+  }
+  
+  /*.access-label {
+    /*display: none;
+    position: absolute; 
+    left: -10000px; 
+    top: auto; 
+    width: 1px; 
+    height: 1px; 
+    overflow: hidden;	
+  }*/
+  
+  .access-link, .access-label {
+    /*width: 0; height: 0; overflow: hidden;*/
+    position: absolute; 
+    left: -10000px; 
+    top: auto; 
+    width: 1px; 
+    height: 1px; 
+    overflow: hidden;
+    color: #ffffff;
+  }
+  
+  /***************************************************************************
+  ************************ END GENERAL UTLITY CLASSES ***********************/
+  
+  
+  /************ IRS BANNER & MAINSEARCH BAR **********/
+  /***************************************************/
+  div.headerBar {
+        text-align: left;
+        color: #FFFFFF;
+        padding: 24px 0 0 24px;
+        margin-top: 3px;
+        border: 0px;
+        height: 76px;
+        overflow: hidden;
+  }
+  
+  /* Additonal edits to search header */
+  div#mainsearch {
+        color: #405693;
+        text-align: right;
+        margin: 10px 0px 0px 0px;
+        padding: 0px 8px 0px 0px;
+        width: 800px;
+        float: right;
+        overflow: visible;
+  }
+  
+  /** Not sure what this is  used for, but it should 
+   ** Inherit the font style information from container */
+  div#mainsearch input.qt {
+        margin: 0px;
+        border: medium groove;
+        height: 26px;
+        width: 239px;
+  }
+  
+  div#mainsearch input.search {
+        width: 39px;
+        height: 26px;
+        vertical-align: bottom;
+  }
+  
+  div#mainsearch img.magnifying_glass {
+        width: 29px;
+        height: 26px;
+        margin: 0px -4px 1px 0px;
+        padding: 0px 0px 0px 0px;
+        vertical-align: bottom;
+  }
+  /******** END EAUTH BANNER & MAINSEARCH BAR **********/
+  /*****************************************************/
+  
+  
+  /******************************************************************
+  ***************** END OF MAIN-LONGFORM ***************************/
+  div.navigation {
+        height: 30px;
+        width: 100%;
+  }
+  
+  div#slinks {
+  /*    font: 12px georgia, arial, verdana, sans-serif; */
+        font-family: georgia, arial, verdana, sans-serif;
+        font-size: 12px;
+        color: #405693;
+        color: #405693;
+  }
+  
+  select.dropDownAlignment {
+        margin: 0px 0px 0px 2px;
+  }
+  
+  /* 2nd navigation menu */
+  div.subNavigation {
+        margin-top: 0px;
+        width: 100%;
+  }
+  
+  div.contentPane {
+        height: 100%;
+        padding: 0px;
+        margin: 12px 10px 0px 10px;
+        width: auto;
+        overflow: visible;
+  }
+  
+  /* Div to encapsulate page content */
+  div.sub-nav-content {
+        background-color: #ffffff;
+        width: 100%;
+        height: 100%;
+        margin-top: 4px;
+  }
+  
+  div.error-content {
+        font-size: 12px;
+        background-color: #ffffff;
+        height: auto;
+        width: 100%;
+        margin: -1em 0em -1em 0em;
+        padding: 0em 2em 0em 2em;
+  }
+  
+  /* Div to hold page left nav */
+  div.leftnav {
+        height: 100%;
+        padding: 0 0 0 6px;
+        margin: 12px 6px 15px 0px;
+  }
+  
+  /* Div to hold page left nav */
+  div.leftnavXmlbc {
+        height: 100%;
+        padding: 0px;
+        margin: 12px 0px 0px 0px;
+  }
+  
+  /* Style controls links in left nav */
+  div.leftnavXmlbc li {
+        margin-left: 0em;
+  }
+  
+  /* Style controls links in left nav */
+  div.leftnavXmlbc ul {
+        margin: -12px 0px 0px 1.5em;
+  }
+  
+  /* Style controls links in left nav */
+  div.leftnav li {
+        margin-left: 0em;
+  }
+  
+  /* Style controls links in left nav */
+  div.leftnav ul {
+        margin: -12px 0px 0px 1.5em;
+  }
+  
+  p.leftnavtopics {
+        font: bold 12px/14px georgia, arial, verdana, sans-serif
+  }
+  
+  span.leftnavtopcis {
+        padding-top: 2px;
+        padding-bottom: 0px;
+  }
+  
+  table.search-results {
+        width: 80px;
+  }
+  
+  /* Styles to control list presentation */
+  ul.menu {
+        list-style-type: square;
+        margin-top: 0px;
+        margin-left: 0px;
+  }
+  
+  ul.unindent {
+    padding: 0px;
+    list-style-type: none;
+  }
+  
+  li.menuitem {
+        font-family: georgia, arial, verdana, sans-serif;
+        font-size: 12px;
+        color: #000000;
+        padding-bottom: 0px;
+        margin-top: -1em;
+  }
+  
+  li { /*list-style-type:square;*/
+        font-family: georgia, arial, verdana, sans-serif;
+        font-size: 12px;
+  }
+  
+  /* Search - In document highlighting */
+  div#indochigh table.ultraseek-hlt-topnav {
+        margin-bottom: 14px;
+  }
+  
+  img.paneSeparator {
+        width: 672px;
+        height: 1px;
+  }
+  
+  
+  table .table-content {
+        font-family: sans-serif, arial, verdana, helvetica, georgia;
+        font-weight: bold;
+        font-size: 12px;
+        margin-top: 0px;
+        margin-left: 20px;
+  }
+  
+  /* For Site Keys */
+  table, tr, th, td .site-key-cell {
+        vertical-align: top;
+  }
+  
+  /* R2.0 FOOTER */
+  div.footerBar {
+    text-align: center;
+    color: #000000;
+    font-family: sans-serif, arial, verdana, helvetica, georgia;
+    font-size: 13px;
+    padding: 0px;
+    overflow: hidden;
+    border-top: 1px solid #999999;
+    clear: both;
+    height: 5em;
+    width: 803px;
+    margin: 0px 45px 0px 49px;
+  }
+  
+  div.footerBar li {
+    margin-left: 0px !important;
+    list-style-type: none;
+    display: inline;
+  }
+  
+  div#main div.footerBar, div#main-login div.footerBar {
+        /*margin-top: -6em;*/
+  }
+  
+  /* This is for R2.0 help links */
+  .help a, .help div#main a, .help div#main-longform a {
+        text-decoration: none;
+  }
+  
+  .help a:link, .help div#main a:link, .help div#main-longform a:link {
+        color: #336699;
+        border-bottom: 1px dashed #336699;
+  }
+  
+  .help a:hover, .help div#main a:hover, .help div#main-longform a:hover {
+        color: #FF6633;
+        border-bottom: 1px dashed #FF6633;
+  }
+  
+  /* Rel 20.2.s2 - Story 617499 Remove a:visited from css
+  .help a:visited, .help div#main a:visited, .help div#main-longform a:visited {
+        color: #800080;
+        border-bottom: 1px dashed #800080;
+  }*/
+  
+  /* This is for R2.0 id_proofing.jsp page dropdown filing status styling */
+  select.filing-status-display {
+        margin: 0px 0px 7px 25px;
+        padding-left: 5px;
+  }
+  
+  .no-outline, label.no-outline, .no-outline label {
+        outline: 0;
+  }
+  
+  /* This is for R2.0 id_proofing.jsp page checkbox content block LOA C-E */
+  
+  a.edit-link-display, .edit-link-display a, .edit-link-display td a {
+        display: inline;
+        visibility:visible;
+  }
+  
+  p.guest-content input {
+        outline: 0;
+        display: block;
+        visibility: visible;
+        float: left;
+        margin: 0 0 0 0;
+        padding: 0;
+        width: 13px;
+        height: 30px;
+        /*position: relative;
+        top: -9px;*/
+  }
+  
+  p.guest-content label {
+        outline: 0;
+        display: block;
+        visibility: visible;
+        float: left;
+        width: auto;
+  }
+  
+  .secret-question-answer-length input, .secret-question-answer-length select, 
+  input.secret-question-answer-length,.secret-question-answer-length option, 
+  select.secret-question-answer-length, .secret-question-answer-length {
+        width: 550px;
+        height: 22px;
+  }
+  
+  .text-img-align img, .text-img-align input, img.text-img-align, input.text-img-align, .text-img-align {
+        vertical-align: bottom;
+  }
+  
+  .codepart1-size input, input.codepart1-size, .codepart1-size {
+        /*width: 82px;*/
+        width: 34px;
+        height: 22px;
+  }
+  
+  .codpart2-size input, input.codepart2-size, .codepart2-size {
+        /*width: 88px;*/
+        width: 34px;
+        height: 22px;
+  }
+  
+  ssn1-size input, input.ssn1-size, .ssn1-size {
+    /*width: 88px;*/
+    width: 26px;
+    height: 22px;
+  }
+  
+  .ssn2-size input, input.ssn2-size, .ssn2-size {
+    /*width: 88px;*/
+    width: 18px;
+    height: 22px;
+  }
+  
+  .codepart1-size input, input.codepart1-size, .codepart1-size, 
+  .codepart2-size input, input.codepart2-size, .codepart2-size,
+  .ssn1-size input, input.ssn1-size, .ssn1-size,
+  .ssn2-size input, input.ssn2-size, .ssn2-size {
+        font-family: sans-serif, arial, verdana, helvetica, georgia;
+        font-size: 13px;
+        font-weight: normal;
+  }
+  
+  .zip-textbox, input.zip-textbox, .zip-textbox input {
+        width:92px;
+        height:22px;
+  }
+  
+  .address-textbox, .city-textbox, input.address-textbox, input.city-textbox,
+  .address-textbox input, .city-textbox input {
+        width: 273px;
+        height: 22px;
+  }
+  
+  .phone-textbox, input.phone-textbox, .phone-textbox input {
+        width:103px;
+        height:22px;
+  }
+  
+  .conf-code-header, p.conf-code-header, .conf-code-header p, span.conf-code-header, .conf-code-header span {
+        /* background: #F7FCED url('/eauth/pub/common/images/icon_green_exclaimation.jpg') no-repeat center left; */
+        border: 1px solid #C8E490;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        height: 49px;
+        width: auto;
+  }
+  
+  .conf-code-header-indent, p.conf-code-header-indent, 
+  .conf-code-header-indent p, span.conf-code-header-indent, .conf-code-header-indent span {
+        /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F7FCED', endColorstr='#ECF8D4');*/
+        background: -moz-linear-gradient(top, #F7FCED, #ECF8D4);
+        background: linear-gradient(to bottom, #F7FCED, #ECF8D4); 
+        margin-left: 47px; 
+        font-weight: bold;
+        font-family: sans-serif, arial, verdana, helvetica, georgia;
+        font-size: 13px;
+        padding: 5px 0px 5px 0px;
+        border: 0px;
+  }
+  
+  .prereg2-img-container, div.prereg2-img-container, .prereg2-img-container div,
+  p.prereg2-img-container, .prereg2-img-container p, span.prereg2-img-container, .prereg2-img-container span {
+        text-align:left;
+        border: 0px;
+  }
+  
+  
+  /* DIVIDERS */
+  
+  .code-divider, p.code-divider, .code-divider p {
+        width: 14px;
+        height: auto;
+  }
+  
+  .heading-divider, p.heading-divider, .heading-divider p, span.headling-divider, .heading-divider span {
+        height: 52px;
+        width: auto;
+  }
+  
+  .button-divider, p.button-divider, .button-divider p, span.button-divider, .button-divider span {
+        width: 10px;
+        height: auto;
+  }
+  
+  .button-divider-block, p.button-divider-block, .button-divider-block p, span.button-divider-block, .button-divider-block span {
+    display: block;
+    height: 8px;
+  }
+  
+  .vertical-divider, p.vertical-divider, .vertical-divider p, span.vertical-divider, .vertical-divider span {
+        width: auto;
+        height: 2px;
+  }
+  
+  .vertical-divider-large, p.vertical-divider-large, .vertical-divider-large p,
+  span.vertical-divider-large, .vertical-divider-large span {
+        width: auto;
+        height: 24px;
+  }
+  
+  .vertical-divider-login, p.vertical-divider-login, .vertical-divider-login p,
+  span.vertical-divider-login, .vertical-divider-login span {
+        width: 1px;
+        height: 13px;
+  }
+  
+  .vertical-divider-login-large, p.vertical-divider-login-large, .vertical-divider-login-large p,
+  span.vertical-divider-login-large, .vertical-divider-login-large span {
+        width: 1px;
+        height: 60px;
+  }
+  
+  .vertical-divider-signup, p.vertical-divider-signup, vertical-divider-signup p, span.vertical-divider-signup,
+   vertical-divider-signup span {
+     width: 1px;
+    height: 28px;
+  }
+  
+  .horizontal-button-divider-login, p.horizontal-button-divider-login, .horizontal-button-divider-login p,
+  span.horizontal.divider-login-large, .horizontal-button-divider-login span {
+        width: 100px;     
+  }
+  
+  .horizontal-unax-divider-login, p.horizontal-unax-divider-login, .horizontal-unax-divider-login p,
+  span.horizontal-unax-divider-login, .horizontal-unax-divider-login span,
+  div.horizontal-unax-divider-login, .horizontal-unax-divider-login div {
+    border-top: 0px solid #000000;
+  }
+  
+  .login-forgot-link-button-divider {
+      width:auto;
+      height:4px;
+      /*display:inline-block;*/
+  }
+  
+  .help-link-divider, p.help-link-divider, .help-link-divider p, span.help-link-divider, .help-link-divider span {
+       width: auto;
+       height: 0px;
+       padding-top: 0.5px;     
+  }
+  
+  /* LOGIN */
+  
+  .unaxBar, div.unaxBar, .unaxBar div {
+    width: 800px;
+    margin: 0px 85px 0px 32px;
+    border-bottom: 1px solid #cccccc;
+  }
+  
+  .unax, div.unax, .unax div {
+    margin: 0px 80px 0px 32px;
+  }
+  
+  
+  .signin-size, p.signin-size, .signin-size p, div.signin-size, .signin-size p, span.signin-size, .signin-size span {
+    width: 350px;
+  }
+  
+  .signup-button-position, p.signup-button-position, .signup-button-position p {
+    position: relative;
+    top: 14px;
+    left: 0px;
+    width: 5%;
+    padding: 0px;
+  }
+  
+  .prereg1-content-footer, p.prereg1-content-footer, prereg1-content-footer p, span.prereg1-content-footer,
+  prereg1-content-footer span {
+      background-color: #EEEEEE;
+      width: 760px;
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+      padding-top: 10px !important;
+      padding-bottom: 0px !important;
+      margin: 0px 0px 0px 0px !important;
+  }
+  
+  .prereg1-content-text, p.prereg1-content-text, prereg1-content-text p, span.prereg1-content-text,
+  prereg1-content-text span {
+       /* line-height: 20px; */
+    font-family: sans-serif, arial, georgia, verdana, serif;
+      font-weight: bold;
+      font-size: 11px;
+      color: #000000;
+  }
+  
+  /* NON-IE WILL HAVE A TOP POSITIONING OF -33px INSTEAD OF -37px, PLEASE NOTE */
+  .prereg2-img-links, span.prereg2-img-links, .prereg2-img-links span {
+    position: relative;
+    top: -70px;
+    left: 34px;
+    width: 100%;
+    padding: 10px; 
+    display: block;
+  }
+  
+  /* ID PROOFING */
+  
+  .tax-filer-true-style, p.tax-filer-true-style, .tax-filer-true-style p, span.tax-filer-true-style,
+  .tax-filer-true-style span {
+    font-family: sans-serif, arial, verdana, helvetica, georgia;
+    font-size: 13px;
+    font-weight: normal;
+    outline: 0;
+  }
+  
+  .id_proofing-address01-display, span.id_proofing-address01-display, .id_proofing-address01-display span,
+   p.id_proofing-address01-display, .id_proofing-address01-display p {
+     width: 70%;
+     position: relative;
+     left: 50px;
+     top: -22px;
+     display: block;
+     visibility: visible;
+     overflow: hidden;
+     padding: 0px;
+     float: right;
+   }
+  
+   .normal-size-text, label.normal-size-text, .normal-size-text label {
+    font-family: sans-serif, arial, verdana, helvetica, georgia;
+     font-size: 13px !important;
+   }
+  
+  /* PROFILE CREATE/UPDATE */
+  
+  .random-site-key-display, p.random-site-key-display, .random-site-key-display p {
+    position: relative;
+      top: -35px;
+      left: 0px;
+      z-index: 100;
+  }
+  
+  .site-key-block-viewable-display, p.site-key-block-viewable-display, .site-key-block-viewable-display p {
+     display: none;
+     visibility: hidden;
+   }
+  
+   .site-key-block-display, fieldset.site-key-block-display, .site-key-block-display fieldset,
+  div.site-key-block-display, .site-key-block-display div {
+    position: relative;
+    top: -80px;
+    right: 50px;
+    padding: 10px 10px 10px 10px;
+    display: block;
+  }
+  
+  .site-image-table-position, table.site-image-table-position, .site-image-table-position table, 
+  div.site-image-table-position, .site-image-table-position div, span.site-image-table-position,
+  .site-image-table-position span {
+    position: relative;
+      left: -30px;
+  }
+  
+  .site-key-block-viewable-position.profile_create, p.site-key-block-viewable-position.profile_create,
+   .site-key-block-viewable-position.profile_create p {
+    position: absolute;
+    top: 0px; 
+    left: 100px;
+  }
+  
+  .site-key-block-viewable-position.profile_update, p.site-key-block-viewable-position.profile_update, .site-key-block-viewable-position.profile_update p {
+    position: absolute;
+    top: 0px; 
+    left: 100px; 
+  }
+  
+  .arrow-left-position.profile_create, div.arrow-left-position.profile_create, .arrow-left-position.profile_create div,
+  p.arrow-left-position.profile_create, .arrow-left-position.profile_create p {
+    position: relative;
+    top: 10px; 
+    left: -10px; 
+    z-index: 100;
+    padding: 10px 10px 10px 10px;
+    cursor: pointer;
+    display: none;
+    visibility: hidden;
+  }
+  
+  
+  .arrow-left-position.profile_update, div.arrow-left-position.profile_update, .arrow-left-position.profile_update div,
+  p.arrow-left-position.profile_update, .arrow-left-position.profile_update p {
+    position: relative;
+    top: 0px; 
+    left: -11px;
+    z-index: 100;
+    padding: 10px 10px 10px 10px;
+    display: block;
+    cursor: pointer;
+  }
+  
+  .arrow-right-position.profile_create, div.arrow-right-position.profile_create, .arrow-right-position.profile_create div,
+  p.arrow-right-position.profile_create, .arrow-right-position.profile_create p {
+    position: relative; 
+    top: -80px; 
+    left: 640px; 
+    z-index: 100;
+    padding: 10px 10px 10px 10px;
+    cursor: pointer;
+    display: none;
+    visibility: hidden;
+  }
+  
+  .arrow-right-position.profile_update, div.arrow-right-position.profile_update, .arrow-right-position.profile_update div,
+  p.arrow-right-position.profile_update, .arrow-right-position.profile_update p {
+    position: relative; 
+    top: -80px; 
+    left: 640px; 
+    z-index: 100;
+    padding: 10px 10px 10px 10px;
+    display: block;
+    cursor: pointer;
+  }
+  
+  .arrow-right-position.select_siteimage, div.arrow-right-position.select_siteimage, 
+  .arrow-right-position.select_siteimage div, p.arrow-right-position.select_siteimage, 
+  .arrow-right-position.select_siteimage p {
+    position: relative;
+    top: -110px;
+    left: 560px;
+    padding: 10px 10px 10px 10px;
+    display: block;
+    cursor: pointer;
+  }
+  
+  .challenge-questions-position, .challenge-questions-header-position {
+    position: relative;
+    top: -99px;
+    display: block;
+  }
+  
+  /* PROFILE UPDATE: SELECT SITE IMAGE */
+  .select-site-image-button-position, p.select-site-image-button-position,
+  .select-site-image-button-position p {
+    position: relative;
+    left: -20px;
+    top: -35px;
+    overflow: hidden;
+    padding: 0px;
+  }
+  
+  /* FORGOT USERID */
+  .forgot-userid-img-cursor, img.forgot-userid-img-cursor, .forgot-userid-img-cursor img,
+  input.forgot-userid-img-cursor, .forgot-userid-img-cursor input {
+    cursor: default;
+  }
+  
+  .forgot-userid-img-text-position, p.forgot-userid-img-text-position, .forgot-userid-img-text-position p,
+  span.forgot-userid-img-text-position, .forgot-userid-img-text-position span {
+    position: relative;
+    top: -44px;
+    left: 55px;
+    padding: 0px;
+    width: 75%;
+    display: block;
+  }
+  
+  /* FINANCIAL PAGE (ide_proofing.jsp) */
+  .ide-textbox-position {
+    margin-left: 26px;
+  }
+  .ide-table-content, p.ide-table-content, ide-table-content p, span.ide-table-content,
+  ide-table-content span {
+      background-color: #EEEEEE;
+      width: 200px;
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
+      margin: 0px 0px 0px 0px !important;
+  }
+  
+  .ide-instructions-position, p.ide-instructions-position, ide-instructions-position p {
+    float:left;
+    overflow:hidden;
+    margin-right:280px !important;
+  }
+  
+  /* LOA 2 and 3 FV */
+  .ide-table-position {
+      position: relative;
+      z-index: 0;
+      left: 200px;
+      top: -75px;
+      float: right;
+  }
+  
+  
+  .ide2-text-position, p.ide2-text-position, ide2-text-position p, span.ide2-text-position,
+  ide2-text-position span {
+    width: 600px;
+    word-wrap: break-word;	
+  }
+  
+  .ide-sublabel-position {
+      display: inline-block;
+      padding-left: 25px;
+  }
+  
+  
+  /* LOGIN FOR EAUTH R2.3 BUILD 19B2 */
+  .newlogin-signup-display, p.newlogin-signup-display, .newlogin-signup-display p {
+    width: 330px !important;
+    float: left;
+    overflow: hidden;
+    margin-right: 10px;
+    height: auto;
+  }
+  
+  .newlogin-signin-display, p.newlogin-signin-display, .newlogin-signin-display p {
+    width: 360px !important;
+    overflow: hidden;
+  }
+  
+  /* ES_GENERAL es_general.jsp */
+  .esgeneral-content-text, p.esgeneral-content-text, esgeneral-content-text p, span.esgeneral-content-text,
+  esgeneral-content-text span {
+       /* line-height: 20px; */
+    font-family: sans-serif, arial, georgia, verdana, serif;
+      font-weight: normal;
+      font-size: 13px;
+      color: #000000;
+  }
+  
+  /* LANDING landingpage.jsp */
+  .landing-table-display, table.landing-table-display, .landing-table-display table {
+    width:395px;
+    padding-left:10px;
+    padding-right:10px;
+  }
+  
+  .landing-table-cell-display, td.landing-table-cell-display, .landing-table-cell-display td {
+    padding-top:20px;
+  }
+  
+  /* ID PROOFING id_proofing.jsp */
+  .address-subheader1-display, span.address-subheader1-display, .address-subheader1-display span {
+    display: block;
+    visibility: visible;
+  }
+  
+  .address-subheader2-display, span.address-subheader2-display, .address-subheader2-display span {
+    display: none;
+    visibility: hidden;
+  }
+  
+  /* EXPECTATION PAGES */
+  .es-page-li {
+    margin-left: 12px;
+  }
+  
+  .no-button {
+      background: transparent;
+      border: none;
+      padding: 0px;
+  }
+  
+  .yes_button_position {
+    display: block;
+  }
+  
+  .no_button_position {
+    display: block;
+    margin-top: 0.5em;
+  }
+  
+  .es_back_button_position {
+    position: relative;
+    left: -223px;
+  }
+  
+  .alts_button_position {
+    position: relative;
+    left: 90px;
+  }
+  /* ------ REQUIRED FOR IE 10+ BUT MUST BE HARD-CODED INTO NON-IE CSS ------- */
+  html {
+    background-image: linear-gradient(to bottom, #FFFFFF, #EEEEEE); /* IE 11... */
+    text-align: center;
+  }
+  
+  body > div#main, body > div#main-longform {
+    margin: 0 auto;
+  }
+  /* ------------------ END OF REQUIREMENT FOR IE10+ ------------------------- */
+  
+  /* 	THIS IS SPECIFICALLY USED IN es_phone.jsp */
+  ul.custom-li, .custom-li ul {
+     list-style: none;
+     margin-left: 0;
+     padding-left: 1em;
+     text-indent: -1em;
+  }
+  
+  .notification-div {
+    background: #ffeec8;
+    padding: 20px;
+  }
+  
+  /* FOR totp_setup.jsp */
+  .centered-text, p.centered-text, .centered-text p {
+    margin: 0 0 10pz;
+  }
+  
+  .last-li-indent {
+    margin-left: 20px;
+    padding-left: 56px;
+  }
+  
+  /* CURRENT FOR ide_proofing.jsp, ide2_proofing.jsp */
+  input[type=radio] .bigradio, input.radio .bigradio, input.radiobox .bigradio {
+    font-size: 13px;
+    border: none;
+  }
+  
+  
+  /* FOR CUSTOM BORDERS LIKE <legend> */
+  .border-group-container {
+    margin-top: 30px;
+    margin-bottom: 3rem;
+     border: 1px solid #cccccc;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .border-group-container h5 {
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    background: #ffffff;
+    padding: 0 15px;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .pseudo-header {
+    color: #666666;
+    font-size: 2.2rem;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  
+  .double-space {
+    padding: 5px 0px;
+  }
+  
+  /* Ordered list with parentheses */
+  ol.number-parentheses {
+    counter-reset: list;
+  }
+  
+  ol.number-parentheses > li {
+    list-style-type: none;
+    position: relative;
+  }
+  
+  ol.number-parentheses > li:before {
+    counter-increment: list;
+    content: counter(list, decimal) ") ";
+    position: absolute;
+    left: -1.4em;
+  }
+  
+  .pseudo-fieldset {
+    margin: 1em 0px 0px 0px;
+    padding: 0px;
+  }
+  
+  .footnote {
+    margin-top: 0.75em;
+    font-size: 9px;
+    color: #666666;
+  }
+
+  /* ---------------------------------------------- PASSWORD FEEDBACK ------------------------------------------ --*/
+.default_password_rules_display, span.default_password_rules_display,
+.default_password_rules_display span, li.default_password_rules_display, 
+.default_password_rules_display li {
+      background-color: #dddddd;
+    text-align:left;
+    margin-top: 0px;
+    margin-left: 50px;
+    padding-top: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-family: sans-serif, arial, georgia, verdana, serif;
+    font-weight: normal;
+    font-size: 13px !important;
+    color: #000000;
+    width: 270px !important;
+    display: block;
+    border-top: 2px solid #D9EDAF;
+    border-right: 2px solid #D9EDAF;
+    border-left: 2px solid #D9EDAF;
+    border-bottom: 2px solid #D9EDAF;
+}
+
+.password_rules_line_item_display, li.password_rules_line_item_display,
+.password_rules_line_item_display li {
+    list-style: none; 
+    list-style-position: inside;
+    margin: 0px; 
+    padding-left: 10px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    width: 265px !important;
+    position: relative;
+    left: -25px;
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #D9EDAF;
+}
+
+.password_rules_line_item_display_neutral, li.password_rules_line_item_display_neutral,
+.password_rules_line_item_display_neutral li {
+      background-color: #dddddd;
+}
+
+
+.password_rules_line_item_display_correct, li.password_rules_line_item_display_correct,
+.password_rules_line_item_display_correct li {
+    background-color: #D9EDAF;
+      font-weight: normal;
+}
+
+.password_rules_line_item_display_incorrect, li.password_rules_line_item_display_incorrect,
+.password_rules_line_item_display_incorrect li {
+     background-color: #FF6464;
+    font-weight: bold;
+}
+
+/*.mark1_position, span.mark1_position, .mark1_position span {
+      position: relative;
+    top: -118px;
+    left: 130px;
+}
+
+.mark2_position, span.mark2_position, .mark2_position span {
+      position: relative;
+    top: -88px;
+    left: 100px;
+}
+
+
+.mark3_position, span.mark3_position, .mark3_position span {
+      position: relative;
+    top: -55px;
+    left: 69px; 
+}
+
+
+.mark4_position, span.mark4_position, .mark4_position span {
+      position: relative;
+    top: -25px;
+    left: 40px;   
+}*/
+
+.mark1_position, .mark2_position, .mark3_position, .mark4_position {
+      position: relative;
+}
+
+.mark1_position.profile_create1 {
+    top: -118px;
+    left: 130px;
+}
+
+.mark1_position.profile_create01 {
+    top: -118px;
+    left: 130px;
+}
+
+.mark1_position.profile_update1 {
+    top: -118px;
+    left: 130px;
+}
+
+.mark1_position.reregister1 {
+    top: -118px;
+    left: 130px;
+}
+
+.mark1_position.reset_password01 {
+    top: -118px;
+    left: 115px;
+}
+
+.mark1_position.getpin1 {
+    top: -118px;
+    left: 115px;
+}
+
+.mark1_position.resetpin1 {
+    top: -118px;
+    left: 115px;
+}
+
+.mark1_position.change_password1 {
+    top: -118px;
+    left: 115px;
+}
+
+.mark1_position.getpin1 {
+    top: -118px;
+    left: 115px;
+}
+
+.mark2_position.profile_create2 {
+    top: -88px;
+    left: 100px;
+}
+
+.mark2_position.profile_create02 {
+    top: -88px;
+    left: 100px;
+}
+
+.mark2_position.profile_update2 {
+    top: -88px;
+    left: 100px;
+}
+
+.mark2_position.reregister2 {
+    top: -88px;
+    left: 100px;
+}
+
+.mark2_position.reset_password02 {
+    top: -88px;
+    left: 86px;
+}
+
+.mark2_position.getpin2 {
+    top: -88px;
+    left: 86px;
+}
+
+.mark2_position.resetpin2 {
+    top: -88px;
+    left: 86px;
+}
+
+.mark2_position.change_password2 {
+    top: -88px;
+    left: 86px;
+}
+
+
+.mark3_position.profile_create3 {
+    top: -55px;
+   left: 69px; 
+}
+
+.mark3_position.profile_create03 {
+    top: -55px;
+   left: 69px; 
+}
+
+.mark3_position.profile_update3 {
+    top: -55px;
+   left: 69px; 
+}
+
+.mark3_position.reregister3 {
+    top: -55px;
+    left: 69px; 
+}
+
+.mark3_position.reset_password03 {
+    top: -55px;
+    left: 56px;
+}
+
+.mark3_position.getpin3 {
+    top: -55px;
+    left: 56px;
+}
+
+.mark3_position.resetpin3 {
+    top: -55px;
+    left: 56px;
+}
+
+.mark3_position.change_password3 {
+    top: -55px;
+    left: 56px;
+}
+
+.mark3_position.getpin3 {
+    top: -55px;
+    left: 56px;
+}
+
+.mark4_position.profile_create4 {
+    top: -25px;
+    left: 40px;   
+}
+
+.mark4_position.profile_create04 {
+    top: -25px;
+    left: 40px;   
+}
+
+
+.mark4_position.profile_update4 {
+    top: -25px;
+    left: 40px;   
+}
+
+.mark4_position.reregister4 {
+    top: -25px;
+    left: 40px;   
+}
+
+.mark4_position.reset_password04 {
+    top: -25px;
+    left: 27px;
+}
+
+.mark4_position.getpin4 {
+    top: -25px;
+    left: 27px;
+}
+
+.mark4_position.resetpin4 {
+    top: -25px;
+    left: 27px;
+}
+
+.mark4_position.change_password4 {
+    top: -25px;
+    left: 27px;
+}
+
+.mark4_position.getpin4 {
+    top: -25px;
+    left: 27px;
+}
+
+.mark_display, span.mark_display, .mark_display span {
+      visibility: hidden;
+    /* DO NOT USE display: none AS IT WILL BE UNREADABLE BY SCREEN READERS */
+}
+
+/*-- ---------------------------------- END OF PASSWORD FEEDBACK ------------------------------------------------ --*/
