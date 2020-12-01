@@ -9,9 +9,9 @@ const ID = () => {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [phone, setPhone] = useState('')
-    const [dobMonth, setDobMonth] = useState('')
-    const [dobDay, setDobDay] = useState('')
-    const [dobYear, setDobYear] = useState('')
+    const [dobMonth, setDobMonth] = useState('01')
+    const [dobDay, setDobDay] = useState('01')
+    const [dobYear, setDobYear] = useState('1900')
     const [ssn1, setSsn1] = useState('')
     const [ssn2, setSsn2] = useState('')
     const [ssn3, setSsn3] = useState('')
@@ -20,14 +20,14 @@ const ID = () => {
     const [address1, setAddress1] = useState('')
     const [address2, setAddress2] = useState('')
     const [city, setCity] = useState('')
-    const [state, setState] = useState('')
+    const [state, setState] = useState('Alabama')
     const [zipcode, setZipcode] = useState('')
-    const [country, setCountry] = useState('')
+    const [country, setCountry] = useState('United States')
 
     const handleSubmit = e => {
         e.preventDefault()
+
         history.push('/verify')
-        // alert(`${state} ${filedForTaxReturn}`)
     }
 
     const handleChange = e => {
