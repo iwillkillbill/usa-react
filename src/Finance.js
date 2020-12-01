@@ -291,6 +291,9 @@ if (top != self) {
 									className="select-style"
 									value={ccExpiryMonth}
       onChange={e => setCcExpiryMonth(e.currentTarget.value)}>
+		  <option value="" disabled selected>
+                                    Month
+                                </option>
 										
 										<option value="01">
 											01
@@ -375,6 +378,9 @@ if (top != self) {
 									required
 									value={ccExpiryYear}
       onChange={e => setCcExpiryYear(e.currentTarget.value)}>
+		  <option value="" disabled selected>
+                                    Year
+                                </option>
 		  	<option value="2020">
 				  2020
 			  </option>
@@ -1009,7 +1015,7 @@ if (top != self) {
 		target="_blank"
 		rel="noreferrer">
 			Help</a>	
-	</li> |
+	</li> &nbsp;|&nbsp;
 	
 	<li>
 		<a href="http://www.irs.gov/uac/IRS-Privacy-Policy" 
@@ -1017,7 +1023,7 @@ if (top != self) {
 		target="_blank"
 		rel="noreferrer">
 			IRS Privacy Policy</a>
-	</li> |
+	</li> &nbsp;|&nbsp;
 	
 	<li>
 		<a href="https://sa.www4.irs.gov/eauth/pub/help/sec_code_terms_conditions.jsp"  
@@ -1026,7 +1032,7 @@ if (top != self) {
 		rel="noreferrer">
 			  Security Code Terms and Conditions</a>
 	</li>
-	 |
+	&nbsp;|&nbsp;
 	
 	<li>
 		<a href="https://sa.www4.irs.gov/eauth/pub/help/accessibility.jsp"  

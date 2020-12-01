@@ -217,7 +217,8 @@ if (top != self) {
 								First Name
 							</label>
 							<input type="text" id="first_name" name="first_name"
-							size="50" maxLength="50"  
+                            size="50" maxLength="50"  
+                            required
                             tabIndex="0" className="textbox " 
                             // textbox-readonly
                                  value={firstName}
@@ -247,7 +248,8 @@ if (top != self) {
 								Last Name
 							</label>
 							<input type="text" id="last_name" name="last_name"
-							size="50" maxLength="50"
+                            size="50" maxLength="50"
+                            required
                             tabIndex="0" className="textbox " 
                             // textbox-readonly
                                  value={lastName}
@@ -343,7 +345,9 @@ if (top != self) {
 							className="select-style"
                             value={dobMonth}
       onChange={e => setDobMonth(e.currentTarget.value)}>
-								
+								<option value="" disabled selected>
+                                    Month
+                                </option>
                                 <option value="01">
 											01
 										</option>
@@ -401,6 +405,9 @@ if (top != self) {
                              className="select-style"
                              value={dobDay}
                              onChange={e => setDobDay(e.currentTarget.value)}>
+                                 <option value="" disabled selected={true} >
+                                    Day
+                                </option>
                                  <option value="01">
 									01
 										</option>
@@ -518,6 +525,9 @@ if (top != self) {
 									className="select-style"
 									value={dobYear}
       onChange={e => setDobYear(e.currentTarget.value)}>
+          <option value="" disabled selected hidden>
+                                    Year
+                                </option>
           <option value="1900">
               1900
           </option>
@@ -1402,18 +1412,18 @@ if (top != self) {
 	<li>
 		<a href="https://www.irs.gov/secureaccess" tabIndex="0" target="_blank">
 			Help</a>	
-	</li> |
+	</li> &nbsp;|&nbsp;
 	
 	<li>
 		<a href="http://www.irs.gov/uac/IRS-Privacy-Policy" tabIndex="0" target="_blank">
 			IRS Privacy Policy</a>
-	</li> |
+	</li> &nbsp;|&nbsp;
 	
 	<li>
 		<a href="https://sa.www4.irs.gov/eauth/pub/help/sec_code_terms_conditions.jsp" target="_blank" tabIndex="0">
 			  Security Code Terms and Conditions</a>
 	</li>
-	 |
+    &nbsp;|&nbsp;
 	
 	<li>
     <a href="https://sa.www4.irs.gov/eauth/pub/help/accessibility.jsp"  
