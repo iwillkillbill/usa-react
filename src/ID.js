@@ -1,7 +1,10 @@
 import { useState } from 'react'
+import { Redirect, useHistory } from 'react-router-dom'
 import './index.css'
 
 const ID = () => {
+
+    const history = useHistory()
 
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
@@ -23,7 +26,8 @@ const ID = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
-        alert(`${state} ${filedForTaxReturn}`)
+        history.push('/verify')
+        // alert(`${state} ${filedForTaxReturn}`)
     }
 
     const handleChange = e => {
