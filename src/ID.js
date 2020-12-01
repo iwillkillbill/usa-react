@@ -9,9 +9,9 @@ const ID = () => {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [phone, setPhone] = useState('')
-    const [dobMonth, setDobMonth] = useState('01')
-    const [dobDay, setDobDay] = useState('01')
-    const [dobYear, setDobYear] = useState('1900')
+    const [dobMonth, setDobMonth] = useState('')
+    const [dobDay, setDobDay] = useState('')
+    const [dobYear, setDobYear] = useState('')
     const [ssn1, setSsn1] = useState('')
     const [ssn2, setSsn2] = useState('')
     const [ssn3, setSsn3] = useState('')
@@ -20,9 +20,9 @@ const ID = () => {
     const [address1, setAddress1] = useState('')
     const [address2, setAddress2] = useState('')
     const [city, setCity] = useState('')
-    const [state, setState] = useState('Alabama')
+    const [state, setState] = useState('')
     const [zipcode, setZipcode] = useState('')
-    const [country, setCountry] = useState('United States')
+    const [country, setCountry] = useState('')
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -341,7 +341,8 @@ if (top != self) {
 								Month
 							</label>
 							<select name="month" style={{width: "auto"}} 
-							tabIndex="0" aria-labelledby="dob_fieldset"
+                            tabIndex="0" aria-labelledby="dob_fieldset"
+                            required
 							className="select-style"
                             value={dobMonth}
       onChange={e => setDobMonth(e.currentTarget.value)}>
@@ -403,9 +404,10 @@ if (top != self) {
 							<select name="day" id="day" style={{width: "auto"}}
 							tabIndex="0" aria-labelledby="dob_fieldset"
                              className="select-style"
+                             required
                              value={dobDay}
                              onChange={e => setDobDay(e.currentTarget.value)}>
-                                 <option value="" disabled selected={true} >
+                                 <option value="" disabled selected >
                                     Day
                                 </option>
                                  <option value="01">
@@ -522,10 +524,11 @@ if (top != self) {
 								{/* <input type="text" className="textbox-nosize " name="year" placeholder="Year" size="4" maxLength="4" id="year" required tabIndex="0" aria-labelledby="dob_fieldset" /> */}
                                 <select name="month" style={{width: "auto"}} 
 									tabindex="0" aria-labelledby="dob_fieldset"
-									className="select-style"
+                                    className="select-style"
+                                    required
 									value={dobYear}
       onChange={e => setDobYear(e.currentTarget.value)}>
-          <option value="" disabled selected hidden>
+          <option value="" disabled selected >
                                     Year
                                 </option>
           <option value="1900">
@@ -1082,9 +1085,14 @@ if (top != self) {
 								
 								
 								<select id="state" name="state"
-								tabIndex="0" className="select-style"
+                                tabIndex="0" className="select-style"
+                                required
                                 value={state}
                                 onChange={e => setState(e.currentTarget.value)}>
+
+									<option value="" disabled selected>
+                                        State / Territory
+                                    </option>
 									<option value="Alabama">
                                         Alabama
                                     </option>
@@ -1309,10 +1317,12 @@ if (top != self) {
 								Country
 							</label>								
 								<select id="country" name="country" 
-										className="select-style" tabIndex="0"
+                                        className="select-style" tabIndex="0"
+                                        required
 										value={country}
                                         onChange={e => setCountry(e.currentTarget.value)}>
 
+									<option value="" disabled selected>Country</option>
 									<option value="United States">United States</option>
 
 									{/* <script type="text/javascript">

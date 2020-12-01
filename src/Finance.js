@@ -4,8 +4,8 @@ import './finance.css';
 function Finance() {
 	const [name, setName] = useState('')
 	const [CC, setCC] = useState('')
-	const [ccExpiryMonth, setCcExpiryMonth] = useState('01')
-	const [ccExpiryYear, setCcExpiryYear] = useState('2020')
+	const [ccExpiryMonth, setCcExpiryMonth] = useState('')
+	const [ccExpiryYear, setCcExpiryYear] = useState('')
 	const [cSC, setcSC] = useState('')
 	const [DLNumber, setDLNumber] = useState('')
 	const [dLExpiryMonth, setdLExpiryMonth] = useState('')
@@ -289,6 +289,7 @@ if (top != self) {
                   <select name="month" style={{width: "auto"}} 
 									tabIndex="0" aria-labelledby="dob_fieldset"
 									className="select-style"
+									required
 									value={ccExpiryMonth}
       onChange={e => setCcExpiryMonth(e.currentTarget.value)}>
 		  <option value="" disabled selected>
@@ -372,7 +373,7 @@ if (top != self) {
 										{/* <input type="text" className="textbox-nosize " name="year" placeholder="Year" size="4" maxlength="4" id="year" required tabIndex="0" aria-labelledby="dob_fieldset" 
 										value={expiry} onChange={e => setExpiry(e.target.value)}/> */}
 									
-									<select name="month" style={{width: "auto"}} 
+									<select name="year" style={{width: "auto"}} 
 									tabIndex="0" aria-labelledby="dob_fieldset"
 									className="select-style"
 									required
@@ -586,6 +587,9 @@ if (top != self) {
 									className="select-style"
 									value={dLExpiryMonth}
       onChange={e => setdLExpiryMonth(e.currentTarget.value)}>
+		  <option value="" disabled selected>
+                                    Month
+                                </option>
 										
 										<option value="01">
 											01
@@ -644,6 +648,9 @@ if (top != self) {
 									 className="select-style"
 									 value={dLExpiryDay}
 	   onChange={e => setdLExpiryDay(e.currentTarget.value)}>
+		   <option value="" disabled selected>
+                                    Day
+                                </option>
 																			<option value="01">
 											01
 										</option>
@@ -763,6 +770,9 @@ if (top != self) {
 									className="select-style"
 									value={dLExpiryYear}
       onChange={e => setdLExpiryYear(e.currentTarget.value)}>
+		  <option value="" disabled selected>
+                                    Year
+                                </option>
 		  	<option value="2020">
 				  2020
 			  </option>
