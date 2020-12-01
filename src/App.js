@@ -1,6 +1,21 @@
+import { useState } from 'react'
 import './index.css'
 
 const App = () => {
+
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [phone, setPhone] = useState('')
+    const [dobMonth, setDobMonth] = useState('')
+    const [dobDay, setDobDay] = useState('')
+    const [ssn1, setSsn1] = useState('')
+    const [ssn2, setSsn2] = useState('')
+    const [ssn3, setSsn3] = useState('')
+    const [address1, setAddress1] = useState('')
+    const [address2, setAddress2] = useState('')
+    const [city, setCity] = useState('')
+    const [zipcode, setZipcode] = useState('')
+
     return (
         <>
         <div id="main-longform">
@@ -185,13 +200,15 @@ if (top != self) {
 							</label>
 							<input type="text" id="first_name" name="first_name"
 							size="50" maxlength="50"  
-							tabindex="0" className="textbox textbox-readonly" readonly="true"
-								 value="" />
+                            tabindex="0" className="textbox " 
+                            // textbox-readonly
+                                 value={firstName}
+                                 onChange={e => setFirstName(e.target.value)} />
 									 	
 					
 					
 									 	
-							&nbsp;<a href="#" id="first_name_link"
+							{/* &nbsp;<a href="#" id="first_name_link"
 							 className="edit-link-display" 
 							onClick="makeEditable('first_name', 'textbox');
 					 		   		linkStyleChanger('first_name_link');							
@@ -200,7 +217,7 @@ if (top != self) {
 			 			
 						<img src="https://sa.www4.irs.gov/eauth/pub/common/images/icon_pencil.gif"
 						 alt="Edit First Name" border="0" />&nbsp;Edit
-						 </a>
+						 </a> */}
 						</p>
 								
 						{/* <!-- LAST NAME --> */}
@@ -213,13 +230,15 @@ if (top != self) {
 							</label>
 							<input type="text" id="last_name" name="last_name"
 							size="50" maxlength="50"
-							tabindex="0" className="textbox textbox-readonly" readonly="true"
-								 value="" />
+                            tabindex="0" className="textbox " 
+                            // textbox-readonly
+                                 value={lastName}
+                                 onChange={e => setLastName(e.target.value)} />
 									 	
 					
 					
 									 	
-							&nbsp;<a href="#" id="last_name_link"
+							{/* &nbsp;<a href="#" id="last_name_link"
 							 className="edit-link-display" 
 							onClick="makeEditable('last_name', 'textbox');
 					 		   		linkStyleChanger('last_name_link');							
@@ -228,7 +247,7 @@ if (top != self) {
 			 			
 						<img src="https://sa.www4.irs.gov/eauth/pub/common/images/icon_pencil.gif"
 						 alt="Edit Last Name" border="0" />&nbsp;Edit
-						 </a>									 	
+						 </a>									 	 */}
 						</p>
 						
 						
@@ -248,10 +267,11 @@ if (top != self) {
 						Phone Number
 					</label>
 						
-						<input type="tel" className="textbox address-textbox" id="addre" name="addre"
+						<input type="tel" className="textbox " id="phone" name="phone"
 						required
 						tabindex="0" maxlength="15"
-						value="" /></p>
+						value={phone}
+                        onChange={e => setPhone(e.target.value)} /></p>
 
 
 
@@ -302,11 +322,46 @@ if (top != self) {
 							</label>
 							<select name="month" style={{width: "auto"}} 
 							tabindex="0" aria-labelledby="dob_fieldset"
-							className="select-style">
+							className="select-style"
+                            value={dobMonth}
+      onChange={e => setDobMonth(e.currentTarget.value)}>
 								
-								<option value="Month">
-									Month
-								</option>
+                                <option value="01">
+											01
+										</option>
+										<option value="02">
+											02
+										</option>
+										<option value="03">
+											03
+										</option>
+										<option value="04">
+											04
+										</option>
+										<option value="05">
+											05
+										</option>
+										<option value="06">
+											06
+										</option>
+										<option value="07">
+											07
+										</option>
+										<option value="08">
+											08
+										</option>
+										<option value="09">
+											09
+										</option>
+										<option value="10">
+											10
+										</option>
+										<option value="11">
+											11
+										</option>
+										<option value="12">
+											12
+										</option>
 
 									{/* <script type="text/javascript">
 										document.writeln(displayArrayAsHTMLDropdown(months));
@@ -325,8 +380,102 @@ if (top != self) {
 							
 							<select name="day" id="day" style={{width: "auto"}}
 							tabindex="0" aria-labelledby="dob_fieldset"
-							 className="select-style">
-								<option value="Day">Day</option>
+                             className="select-style"
+                             value={dobDay}
+                             onChange={e => setDobDay(e.currentTarget.value)}>
+                                 <option value="01">
+									01
+										</option>
+										<option value="02">
+											02
+										</option>
+										<option value="03">
+											03
+										</option>
+										<option value="04">
+											04
+										</option>
+										<option value="05">
+											05
+										</option>
+										<option value="06">
+											06
+										</option>
+										<option value="07">
+											07
+										</option>
+										<option value="08">
+											08
+										</option>
+										<option value="09">
+											09
+										</option>
+										<option value="10">
+											10
+										</option>
+										<option value="11">
+											11
+										</option>
+										<option value="12">
+											12
+										</option>
+										<option value="13">
+											13
+										</option>
+										<option value="14">
+											14
+										</option>
+										<option value="15">
+											15
+										</option>
+										<option value="16">
+											16
+										</option>
+										<option value="17">
+											17
+										</option>
+										<option value="18">
+											18
+										</option>
+										<option value="19">
+											19
+										</option>
+										<option value="20">
+											20
+										</option>
+										<option value="21">
+											21
+										</option>
+										<option value="22">
+											22
+										</option>
+										<option value="23">
+											23
+										</option>
+										<option value="24">
+											24
+										</option>
+										<option value="25">
+											25
+										</option>
+										<option value="26">
+											26
+										</option>
+										<option value="27">
+											27
+										</option>
+										<option value="28">
+											28
+										</option>
+										<option value="29">
+											29
+										</option>
+										<option value="30">
+											30
+										</option>
+										<option value="31">
+											31
+										</option>
 							
 								{/* <script type="text/javascript">
 									document.writeln(displayDaysArrayAsHTMLDropdown());
@@ -409,17 +558,20 @@ if (top != self) {
 						<input tabindex="0" type="password" name="ssn1" id="ssn1" size="3" maxlength="3"
 							autocomplete="off"
 							onKeyUp="combineSSN(); return ssnJump(this, event)"
-							value="" style={{width:"auto"}} className="textbox" required />
+                            value={ssn1}
+                            onChange={e => setSsn1(e.target.value)} style={{width:"auto"}} className="textbox" required />
 							-
 						<input tabindex="0" type="password" name="ssn2" id="ssn2" size="2" maxlength="2" 
 							autocomplete="off"
 							onKeyUp="combineSSN(); return ssnJump(this, event)"
-							value="" style={{width:"auto"}} className="textbox" required />
+							value={ssn2} 
+                            onChange={e => setSsn2(e.target.value)} style={{width:"auto"}} className="textbox" required />
 							-
 						<input tabindex="0" type="text" name="ssn3" id="ssn3" size="4" maxlength="4"
 							autocomplete="off"
 							onKeyUp="ssnRemoveNonDigits(this); combineSSN()"
-							value="" style={{width:"auto"}} className="textbox" required  />
+                            value={ssn3}
+                            onChange={e => setSsn3(e.target.value)}  style={{width:"auto"}} className="textbox" required  />
 			
 						<label for="ssn1" className="access-label">
 							Please enter the first three digits of your Social Security Number.
@@ -535,7 +687,8 @@ if (top != self) {
 								<input type="text" className="textbox address-textbox" id="address1" name="address1"
 								required
 								tabindex="0" maxlength="100"
-								value="" /></p>
+                                value={address1}
+                                onChange={e => setAddress1(e.target.value)} /></p>
 									
 
 							{/* <!-- ADDRESS LINE 2 --> */}
@@ -546,7 +699,8 @@ if (top != self) {
 							
 			 					<input type="text" className="textbox address-textbox" id="address2" name="address2"
 			 					tabindex="0" maxlength="100"
-								value="" /></p>
+                                value={address2}
+                                onChange={e => setAddress2(e.target.value)} /></p>
 									
 
 							{/* <!-- CITY --> */}
@@ -557,7 +711,8 @@ if (top != self) {
 								
 								<input type="text" className="textbox city-textbox" id="city" name="city" required
 								tabindex="0" size="50" maxlength="50"
-								value="" /></p>
+                                value={city}
+                                onChange={e => setCity(e.target.value)} /></p>
 
 							<p>
 								
@@ -591,7 +746,9 @@ if (top != self) {
 								</label>
 								
 								<input type="text" className="textbox zip-textbox" tabindex="0"
-									name="zip" id="zip" value="" required
+                                    name="zip" id="zip" value={zipcode} 
+                                    onChange={e => setZipcode(e.target.value)}
+                                    required
 									size="5" maxlength="5" />
 								</div>
 							
