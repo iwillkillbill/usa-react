@@ -492,7 +492,7 @@ html > body {
   }
   
   input:focus {
-    /*outline: none;*/
+    outline: none;
   }
   
   /* R2.3 P. POWELL: REMOVE EARLIER RESTRICTION FOR OUTLINING FOR ALL INPUT FIELDS PER IRAP DIRECTIVE */
@@ -831,7 +831,7 @@ html > body {
   }
   
   div#main div.footerBar, div#main-login div.footerBar {
-        /*margin-top: -6em;*/
+        margin-top: -6em;
   }
   
   /* This is for R2.0 help links */
