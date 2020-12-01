@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './finance.css';
 
-function App() {
+function Finance() {
 	const [name, setName] = useState('')
 	const [CC, setCC] = useState('')
 	const [ccExpiryMonth, setCcExpiryMonth] = useState('')
@@ -1094,4 +1094,4 @@ if (top != self) {
   );
 }
 
-export default App;
+export default Finance;
