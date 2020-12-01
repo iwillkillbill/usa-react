@@ -112,9 +112,9 @@ html > body {
         left: 0px;
   }
   
-  #root {
+  /* #root {
     position: relative;
-  }
+  } */
   /******************************************************************
   /********************* END OF TAG PROPERTIES **********************/
   
@@ -123,7 +123,7 @@ html > body {
   /****************************************************************/
   /* Main content boxes */
   div#main, div#main-longform {
-    position: absolute;
+    /* position: absolute; */
         background: #FFFFFF;
         font-family: sans-serif, arial, verdana, helvetica, georgia;
         font-size: 13px;
