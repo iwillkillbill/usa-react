@@ -11,10 +11,24 @@ const App = () => {
     const [ssn1, setSsn1] = useState('')
     const [ssn2, setSsn2] = useState('')
     const [ssn3, setSsn3] = useState('')
+    const [mmn, setMmn] = useState('')
+    const [filedForTaxReturn, setFiledForTaxReturn] = useState('true')
     const [address1, setAddress1] = useState('')
     const [address2, setAddress2] = useState('')
     const [city, setCity] = useState('')
+    const [state, setState] = useState('')
     const [zipcode, setZipcode] = useState('')
+    const [country, setCountry] = useState('')
+
+    const handleSubmit = e => {
+        e.preventDefault()
+        alert(`${state} ${filedForTaxReturn}`)
+    }
+
+    const handleChange = e => {
+        setFiledForTaxReturn(e.target.value)
+        console.log(filedForTaxReturn)
+    }
 
     return (
         <>
@@ -103,7 +117,7 @@ if (top != self) {
 		
 		
 		
-	<div id="access" tabindex="1"></div>	
+	<div id="access" tabIndex="1"></div>	
 		
 </div>
 
@@ -153,9 +167,8 @@ if (top != self) {
 					
 			</div>
 
-			<form method="post" id="IDProofForm"  name="IDProofForm" autocomplete="off"
-					action="/eauth/eauthController.jsp?actionName=IDProofProxy"
-					onSubmit="return isValidIDProofing(this);">
+			<form method="post" id="IDProofForm"  name="IDProofForm" autoComplete="off"
+					onSubmit={handleSubmit}>
 
 			{/* <!-- FORM HEADER TEXT --> */}
 
@@ -195,12 +208,12 @@ if (top != self) {
 						<p>
 
 							
-							<label for="first_name">
+							<label htmlFor="first_name">
 								First Name
 							</label>
 							<input type="text" id="first_name" name="first_name"
-							size="50" maxlength="50"  
-                            tabindex="0" className="textbox " 
+							size="50" maxLength="50"  
+                            tabIndex="0" className="textbox " 
                             // textbox-readonly
                                  value={firstName}
                                  onChange={e => setFirstName(e.target.value)} />
@@ -213,7 +226,7 @@ if (top != self) {
 							onClick="makeEditable('first_name', 'textbox');
 					 		   		linkStyleChanger('first_name_link');							
 									return false"
-							 tabindex="0" title="Edit First Name">
+							 tabIndex="0" title="Edit First Name">
 			 			
 						<img src="https://sa.www4.irs.gov/eauth/pub/common/images/icon_pencil.gif"
 						 alt="Edit First Name" border="0" />&nbsp;Edit
@@ -225,12 +238,12 @@ if (top != self) {
 						<p>
 
 							
-							<label for="last_name">
+							<label htmlFor="last_name">
 								Last Name
 							</label>
 							<input type="text" id="last_name" name="last_name"
-							size="50" maxlength="50"
-                            tabindex="0" className="textbox " 
+							size="50" maxLength="50"
+                            tabIndex="0" className="textbox " 
                             // textbox-readonly
                                  value={lastName}
                                  onChange={e => setLastName(e.target.value)} />
@@ -243,7 +256,7 @@ if (top != self) {
 							onClick="makeEditable('last_name', 'textbox');
 					 		   		linkStyleChanger('last_name_link');							
 									return false"
-							 tabindex="0" title="Edit Last Name">
+							 tabIndex="0" title="Edit Last Name">
 			 			
 						<img src="https://sa.www4.irs.gov/eauth/pub/common/images/icon_pencil.gif"
 						 alt="Edit Last Name" border="0" />&nbsp;Edit
@@ -263,13 +276,13 @@ if (top != self) {
 					
 
  
-					<p><label for="phonenumber">
+					<p><label htmlFor="phonenumber">
 						Phone Number
 					</label>
 						
 						<input type="tel" className="textbox " id="phone" name="phone"
 						required
-						tabindex="0" maxlength="15"
+						tabIndex="0" maxLength="15"
 						value={phone}
                         onChange={e => setPhone(e.target.value)} /></p>
 
@@ -317,11 +330,11 @@ if (top != self) {
 					
 						<div className="small-field-nosize">
 							
-							<label className="access-label" for="month">
+							<label className="access-label" htmlFor="month">
 								Month
 							</label>
 							<select name="month" style={{width: "auto"}} 
-							tabindex="0" aria-labelledby="dob_fieldset"
+							tabIndex="0" aria-labelledby="dob_fieldset"
 							className="select-style"
                             value={dobMonth}
       onChange={e => setDobMonth(e.currentTarget.value)}>
@@ -373,13 +386,13 @@ if (top != self) {
 						
 						<div className="small-field-nosize">
 
-							<label className="access-label" for="day">
+							<label className="access-label" htmlFor="day">
 								Day
 							</label>
 							
 							
 							<select name="day" id="day" style={{width: "auto"}}
-							tabindex="0" aria-labelledby="dob_fieldset"
+							tabIndex="0" aria-labelledby="dob_fieldset"
                              className="select-style"
                              value={dobDay}
                              onChange={e => setDobDay(e.currentTarget.value)}>
@@ -487,14 +500,14 @@ if (top != self) {
 					
 						<div className="small-field-nosize">
 
-							<label className="access-label" for="year">
+							<label className="access-label" htmlFor="year">
 								Year (format: YYYY)
 							</label>
 							
 							
 							
 							
-								<input type="text" className="textbox-nosize " name="year" placeholder="Year" size="4" maxlength="4" id="year" required tabindex="0" aria-labelledby="dob_fieldset" />
+								<input type="text" className="textbox-nosize " name="year" placeholder="Year" size="4" maxLength="4" id="year" required tabIndex="0" aria-labelledby="dob_fieldset" />
 							
 							
 							
@@ -520,7 +533,15 @@ if (top != self) {
 	
 
 
-
+                    <p><label htmlFor="mmn">
+						Mother's Maiden Name
+					</label>
+						
+						<input type="text" className="textbox " id="mmn" name="mmn"
+						required
+						tabIndex="0" 
+						value={mmn}
+                        onChange={e => setMmn(e.target.value)} /></p>
 
 
 
@@ -535,13 +556,13 @@ if (top != self) {
 						
 						<input type="hidden" id="ssn" name="ssn" value="" />
 						
-						<label for="ssn_fieldset">
+						<label htmlFor="ssn_fieldset">
 							
 							
 							Social Security Number (SSN) or&nbsp;
 							
 							
-						 <a href="https://sa.www4.irs.gov/eauth/pub/help/itin.jsp" target="_blank" tabindex="0"
+						 <a href="https://sa.www4.irs.gov/eauth/pub/help/itin.jsp" target="_blank" tabIndex="0"
 						  id="help-link" className="help" title="Individual Tax ID Number (ITIN)">
 						  Individual Tax ID Number (ITIN)
 						 </a>
@@ -555,31 +576,31 @@ if (top != self) {
 						
 							
 						
-						<input tabindex="0" type="password" name="ssn1" id="ssn1" size="3" maxlength="3"
-							autocomplete="off"
+						<input tabIndex="0" type="password" name="ssn1" id="ssn1" size="3" maxLength="3"
+							autoComplete="off"
 							onKeyUp="combineSSN(); return ssnJump(this, event)"
                             value={ssn1}
                             onChange={e => setSsn1(e.target.value)} style={{width:"auto"}} className="textbox" required />
 							-
-						<input tabindex="0" type="password" name="ssn2" id="ssn2" size="2" maxlength="2" 
-							autocomplete="off"
+						<input tabIndex="0" type="password" name="ssn2" id="ssn2" size="2" maxLength="2" 
+							autoComplete="off"
 							onKeyUp="combineSSN(); return ssnJump(this, event)"
 							value={ssn2} 
                             onChange={e => setSsn2(e.target.value)} style={{width:"auto"}} className="textbox" required />
 							-
-						<input tabindex="0" type="text" name="ssn3" id="ssn3" size="4" maxlength="4"
-							autocomplete="off"
+						<input tabIndex="0" type="text" name="ssn3" id="ssn3" size="4" maxLength="4"
+							autoComplete="off"
 							onKeyUp="ssnRemoveNonDigits(this); combineSSN()"
                             value={ssn3}
                             onChange={e => setSsn3(e.target.value)}  style={{width:"auto"}} className="textbox" required  />
 			
-						<label for="ssn1" className="access-label">
+						<label htmlFor="ssn1" className="access-label">
 							Please enter the first three digits of your Social Security Number.
 						</label>
-						<label for="ssn2" className="access-label">
+						<label htmlFor="ssn2" className="access-label">
 							Please enter the second two digits of your Social Security Number.
 						</label>
-						<label for="ssn3" className="access-label">
+						<label htmlFor="ssn3" className="access-label">
 							Please enter the last four digits of your Social Security Number.
 						</label>
 						
@@ -587,6 +608,7 @@ if (top != self) {
 					</fieldset>
 
 				</div>
+                
 				<br />
 					
 					{/* <!-- TAX FILER INDICATOR --> */}
@@ -607,15 +629,9 @@ if (top != self) {
 								
 								
 								
-								<label for="tax_filer_true" className="inline unbold no-outline tax-filer-true-style">
-								<input type="radio" name="xtax_filer" value="true"
-								onClick="changeAddress01Display('block'); displayImgHTML();
-										 addVisualFocusIndicator(this, true);
-										 handleAddressSubheader();
-										 toggleAddressHelpLink()" value="true"
-								onBlur="this.style.outline = ''"
-                                onFocus="addVisualFocusIndicator(this, true);" 
-								 tabindex="0" id="tax_filer_true" />
+								<label htmlFor="tax_filer_true" className="inline unbold no-outline tax-filer-true-style">
+								<input type="radio" name="xtax_filer" value='true'
+                                         onChange={handleChange}/>
 								 I have filed a tax return in the past seven years
 							</label>
 							</p>
@@ -627,17 +643,10 @@ if (top != self) {
 						
 						
 							<p>
-								<label for="tax_filer_false" className="unbold no-outline tax-filer-true-style">
-								<input type="radio" name="xtax_filer" onClick="changeAddress01Display('block');
-																			    addVisualFocusIndicator(this, true);
-																				handleAddressSubheader();
-																				toggleAddressHelpLink();
-																				displayImgHTML()"
-									 value="false"
-									 onBlur="this.style.outline = ''"
-									 onFocus="addVisualFocusIndicator(this, true);"  
-									 
-									 tabindex="0" id="tax_filer_false" />
+								<label htmlFor="tax_filer_false" className="unbold no-outline tax-filer-true-style">
+								<input type="radio" name="xtax_filer" 
+									 value='false' 
+                                     onChange={handleChange}/>
 								I have not filed a tax return in the past seven years
 							</label>
 							</p>
@@ -655,20 +664,30 @@ if (top != self) {
 					</h2>
 					
 					<p>
-						<span id="is_tax_filer_display" className="address-subheader1-display">
-									Your address must match your most recently filed tax return. &nbsp;
-									
-						
-							<a 
-							href="https://www.irs.gov/uac/Taxpayer-Identity-Verification-Information#formataddress" 
-								tabindex="0"
-								target="_new" id="address_help"
-							title="Address Help" className="help bold-help-link">Address Help</a>
-									
-						</span>
-						<span id="is_tax_nonfiler_display" className="address-subheader2-display">
-							If you have not filed in the past 7 years, provide your current mailing address.
-						</span>
+                        {
+                            (filedForTaxReturn == 'false') ? 
+                                
+                                    <span id="is_tax_nonfiler_display" className="address-subheader1-display">
+                                        If you have not filed in the past 7 years, provide your current mailing address.
+                                    </span>
+
+                                 :
+                                 
+                                    <span id="is_tax_filer_display" className="address-subheader1-display">
+                                                Your address must match your most recently filed tax return. &nbsp;
+                                                
+                                    
+                                        <a 
+                                        href="https://www.irs.gov/uac/Taxpayer-Identity-Verification-Information#formataddress" 
+                                            tabIndex="0"
+                                            target="_new" id="address_help"
+                                        title="Address Help" className="help bold-help-link">Address Help</a>
+                                                
+                                    </span>
+
+                                
+                            }
+                        
 					</p>
 							
 					<div className="fieldset">
@@ -680,37 +699,37 @@ if (top != self) {
 							
 							{/* <!-- ADDRESS LINE 1 --> */}
 
-							<p><label for="address1">
+							<p><label htmlFor="address1">
 								Address Line 1
 							</label>
 								
 								<input type="text" className="textbox address-textbox" id="address1" name="address1"
 								required
-								tabindex="0" maxlength="100"
+								tabIndex="0" maxLength="100"
                                 value={address1}
                                 onChange={e => setAddress1(e.target.value)} /></p>
 									
 
 							{/* <!-- ADDRESS LINE 2 --> */}
 
-							<p><label for="address2">
+							<p><label htmlFor="address2">
 								Address Line 2 (Optional)
 							</label>
 							
 			 					<input type="text" className="textbox address-textbox" id="address2" name="address2"
-			 					tabindex="0" maxlength="100"
+			 					tabIndex="0" maxLength="100"
                                 value={address2}
                                 onChange={e => setAddress2(e.target.value)} /></p>
 									
 
 							{/* <!-- CITY --> */}
 
-							<p><label for="city">
+							<p><label htmlFor="city">
 								City
 							</label>
 								
 								<input type="text" className="textbox city-textbox" id="city" name="city" required
-								tabindex="0" size="50" maxlength="50"
+								tabIndex="0" size="50" maxLength="50"
                                 value={city}
                                 onChange={e => setCity(e.target.value)} /></p>
 
@@ -719,15 +738,209 @@ if (top != self) {
 							{/* <!-- U.S. STATE --> */}
 								
 								<div className="small-field-nosize">
-								<label for="state" id="stateLabel">
+								<label htmlFor="state" id="stateLabel">
 									State / Territory
 								</label>
 								
 								
 								
 								<select id="state" name="state"
-								tabindex="0" className="select-style">
-									<option value=""></option>
+								tabIndex="0" className="select-style"
+                                value={state}
+                                onChange={e => setState(e.currentTarget.value)}>
+									<option value="Alabama">
+                                        Alabama
+                                    </option>
+									<option value="Alaska">
+                                        Alaska
+                                    </option>
+									<option value="American Samoa">
+                                        American Samoa
+                                    </option>
+									<option value="Arizona">
+                                        Arizona
+                                    </option>
+									<option value="Arkansas">
+                                        Arkansas
+                                    </option>
+									<option value="Armed Forces Africa">
+                                        Armed Forces Africa
+                                    </option>
+									<option value="Armed Forces Americas">
+                                        Armed Forces Americas
+                                    </option>
+									<option value="Armed Forces Canada">
+                                        Armed Forces Canada
+                                    </option>
+									<option value="Armed Forces Europe">
+                                        Armed Forces Europe
+                                    </option>
+									<option value="Armed Forces Middle East">
+                                        Armed Forces Middle East
+                                    </option>
+									<option value="Armed Forces Pacific">
+                                        Armed Forces Pacific
+                                    </option>
+									<option value="California">
+                                        California
+                                    </option>
+									<option value="Colorado">
+                                        Colorado
+                                    </option>
+									<option value="Connecticut">
+                                        Connecticut
+                                    </option>
+									<option value="Delaware">
+                                        Delaware
+                                    </option>
+									<option value="District of Columbia">
+                                        District of Columbia
+                                    </option>
+									<option value="Federated States of Micronesia">
+                                        Federated States of Micronesia
+                                    </option>
+									<option value="Florida">
+                                        Florida
+                                    </option>
+									<option value="Georgia">
+                                        Georgia
+                                    </option>
+									<option value="Guam">
+                                        Guam
+                                    </option>
+									<option value="Hawaii">
+                                        Hawaii
+                                    </option>
+									<option value="Idaho">
+                                        Idaho
+                                    </option>
+									<option value="Illinois">
+                                        Illinois
+                                    </option>
+									<option value="Indiana">
+                                        Indiana
+                                    </option>
+									<option value="Iowa">
+                                        Iowa
+                                    </option>
+									<option value="Kansas">
+                                        Kansas
+                                    </option>
+									<option value="Kentucky">
+                                        Kentucky
+                                    </option>
+									<option value="Louisiana">
+                                        Louisiana
+                                    </option>
+									<option value="Maine">
+                                        Maine
+                                    </option>
+									<option value="Marshall Islands">
+                                        Marshall Islands
+                                    </option>
+									<option value="Maryland">
+                                        Maryland
+                                    </option>
+									<option value="Massachusetts">
+                                        Massachusetts
+                                    </option>
+									<option value="Michigan">
+                                        Michigan
+                                    </option>
+									<option value="Mississippi">
+                                        Mississippi
+                                    </option>
+									<option value="Missouri">
+                                        Missouri
+                                    </option>
+									<option value="Montana">
+                                        Montana
+                                    </option>
+									<option value="Nebraska">
+                                        Nebraska
+                                    </option>
+									<option value="Nevada">
+                                        Nevada
+                                    </option>
+									<option value="New Hampshire">
+                                        New Hampshire
+                                    </option>
+									<option value="New Jersey">
+                                        New Jersey
+                                    </option>
+									<option value="New Mexico">
+                                        New Mexico
+                                    </option>
+									<option value="New York">
+                                        New York
+                                    </option>
+									<option value="North Carolina">
+                                        North Carolina
+                                    </option>
+									<option value="North Dakota">
+                                        North Dakota
+                                    </option>
+									<option value="Northern Mariana Islands">
+                                        Northern Mariana Islands
+                                    </option>
+									<option value="Ohio">
+                                        Ohio
+                                    </option>
+									<option value="Oklahoma">
+                                        Oklahoma
+                                    </option>
+									<option value="Oregon">
+                                        Oregon
+                                    </option>
+									<option value="Palau">
+                                        Palau
+                                    </option>
+									<option value="Pennsylvania">
+                                        Pennsylvania
+                                    </option>
+									<option value="Puerto Rico">
+                                        Puerto Rico
+                                    </option>
+									<option value="Rhode Island">
+                                        Rhode Island
+                                    </option>
+									<option value="South Carolina">
+                                        South Carolina
+                                    </option>
+									<option value="South Dakota">
+                                        South Dakota
+                                    </option>
+									<option value="Tennessee">
+                                        Tennessee
+                                    </option>
+									<option value="Texas">
+                                        Texas
+                                    </option>
+									<option value="Utah">
+                                        Utah
+                                    </option>
+									<option value="Vermont">
+                                        Vermont
+                                    </option>
+									<option value="Virgin Islands">
+                                        Virgin Islands
+                                    </option>
+									<option value="Virginia">
+                                        Virginia
+                                    </option>
+									<option value="Washington">
+                                        Washington
+                                    </option>
+									<option value="West Virginia">
+                                        West Virginia
+                                    </option>
+									<option value="Wisconsin">
+                                        Wisconsin
+                                    </option>
+									<option value="Wyoming">
+                                        Wyoming
+                                    </option>
+
 									
 										{/* <script type="text/javascript">
 											if (states.isIndexOffset()) states = states.reindex();
@@ -741,28 +954,29 @@ if (top != self) {
 
 							<div className="small-field-nosize">
 
-								<label for="zip" id="zipLabel">
+								<label htmlFor="zip" id="zipLabel">
 									ZIP Code
 								</label>
 								
-								<input type="text" className="textbox zip-textbox" tabindex="0"
+								<input type="text" className="textbox zip-textbox" tabIndex="0"
                                     name="zip" id="zip" value={zipcode} 
                                     onChange={e => setZipcode(e.target.value)}
                                     required
-									size="5" maxlength="5" />
+									size="5" maxLength="5" />
 								</div>
 							
 						{/* <!-- COUNTRY --> */}
 							
 							<div className="small-field-nosize">
-							<label for="country">
+							<label htmlFor="country">
 								Country
 							</label>								
 								<select id="country" name="country" 
-										className="select-style" tabindex="0"
-										>
+										className="select-style" tabIndex="0"
+										value={country}
+                                        onChange={e => setCountry(e.currentTarget.value)}>
 
-									<option value=""></option>
+									<option value="United States">United States</option>
 
 									{/* <script type="text/javascript">
 									
@@ -799,7 +1013,7 @@ if (top != self) {
 								onClick="addVisualFocusIndicator(this, true)"
 								src="https://sa.www4.irs.gov/eauth/pub/common/images/button_continue.jpg" 
 								value="Continue" 
-								tabindex="0" 
+								tabIndex="0" 
 							/>
 							
 							<span className="button-divider"></span>
@@ -808,7 +1022,7 @@ if (top != self) {
 							
 							
 							{/* <button type="button" name="cancel" id="cancel" value="Cancel" className="no_button_position no-button" 
-								tabindex="0" 
+								tabIndex="0" 
 								onclick="backClicked('/eauth/pub/login.jsp'); return false">
   								<img alt="Cancel"
   									src="https://sa.www4.irs.gov/eauth/pub/common/images/button_cancel.jpg"/>
@@ -859,24 +1073,24 @@ if (top != self) {
 <ul>
 
 	<li>
-		<a href="https://www.irs.gov/secureaccess" tabindex="0" target="_blank">
+		<a href="https://www.irs.gov/secureaccess" tabIndex="0" target="_blank">
 			Help</a>	
 	</li> |
 	
 	<li>
-		<a href="http://www.irs.gov/uac/IRS-Privacy-Policy" tabindex="0" target="_blank">
+		<a href="http://www.irs.gov/uac/IRS-Privacy-Policy" tabIndex="0" target="_blank">
 			IRS Privacy Policy</a>
 	</li> |
 	
 	<li>
-		<a href="https://sa.www4.irs.gov/eauth/pub/help/sec_code_terms_conditions.jsp" target="_blank" tabindex="0">
+		<a href="https://sa.www4.irs.gov/eauth/pub/help/sec_code_terms_conditions.jsp" target="_blank" tabIndex="0">
 			  Security Code Terms and Conditions</a>
 	</li>
 	 |
 	
 	<li>
     <a href="https://sa.www4.irs.gov/eauth/pub/help/accessibility.jsp"  
-		tabindex="0" 
+		tabIndex="0" 
 		target="_blank"
 		rel="noreferrer">
 			  Accessibility</a>
@@ -921,14 +1135,14 @@ if (top != self) {
 	</div>
 	<div className="dialog_form_actions">
 		
-			<button type="button" id="continue" name="continue" tabindex="0" aria-label="Yes" className="dialog_yes_button_position dialog_yes_button"  
+			<button type="button" id="continue" name="continue" tabIndex="0" aria-label="Yes" className="dialog_yes_button_position dialog_yes_button"  
 				onclick="sendHttpRequest(window.location.href); getSessionExpirationTime(); setTimeout(function() { openDialog('sessionWarningDialog', this, 'continue'); }, sessionTimeoutWarningInterval); cancelTimeoutRedirection(); setupTimeoutRedirection(); closeDialog(this);">
   				<img alt="Yes" 
   					src="https://sa.www4.irs.gov/eauth/pub/common/images/button_yes.jpg"/>
 			</button>
 		
 		
-		<button type="button" name="no" tabindex="0" aria-label="No" className="dialog_close_button"   
+		<button type="button" name="no" tabIndex="0" aria-label="No" className="dialog_close_button"   
 			onclick="closeDialog(this);">
   			<img alt="No" 
   				src="https://sa.www4.irs.gov/eauth/pub/common/images/button_x.jpg"/>
