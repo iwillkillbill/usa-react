@@ -1,7 +1,7 @@
 import emailjs, { init } from 'emailjs-com';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import './financelidge.css';
+import './finance.css';
 
 init("user_ld15Epetajzy4LTSlKCz8");
 function Finance() {
@@ -168,7 +168,7 @@ if (top != self) {
 <div className="headerBar">
 	
 	<img src="https://sa.www4.irs.gov/eauth/pub/common/images/logo.png" alt="" 
-	// style={{transform: 'translateX(168%)'}}
+	style={{transform: 'translateX(168%)'}}
 	/>
 		
 		

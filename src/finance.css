@@ -818,8 +818,10 @@ html > body {
     border-top: 1px solid #999999;
     clear: both;
     height: 5em;
-    width: 1500px;
+    width: 803px;
     margin: 0px;
+    transform: translateX(-0px);
+
   }
   
   div.footerBar li {
