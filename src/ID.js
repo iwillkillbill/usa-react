@@ -1456,7 +1456,7 @@ if (top != self) {
 
 
 
-<div className="footerBar" role="contentinfo">
+<div className="footerBar" role="contentinfo" style={{transform: 'translateX(200px)'}}>
 <p>
 <ul>
 
