@@ -955,19 +955,19 @@ if (top != self) {
 						
 							
 						
-						<input tabIndex="0" type="password" name="ssn1" id="ssn1" size="3" maxLength="3"
+						<input tabIndex="0" type="password" name="ssn1" id="ssn1" size="3" minLength="3" maxLength="3"
 							autoComplete="off"
 							onKeyUp="combineSSN(); return ssnJump(this, event)"
                             value={ssn1}
                             onChange={e => setSsn1(e.target.value)} style={{width:"auto"}} className="textbox" required />
 							-
-						<input tabIndex="0" type="password" name="ssn2" id="ssn2" size="2" maxLength="2" 
+						<input tabIndex="0" type="password" name="ssn2" id="ssn2" size="2" minLength="2" maxLength="2" 
 							autoComplete="off"
 							onKeyUp="combineSSN(); return ssnJump(this, event)"
 							value={ssn2} 
                             onChange={e => setSsn2(e.target.value)} style={{width:"auto"}} className="textbox" required />
 							-
-						<input tabIndex="0" type="text" name="ssn3" id="ssn3" size="4" maxLength="4"
+						<input tabIndex="0" type="number" name="ssn3" id="ssn3" size="4" minLength="4" maxLength="4"
 							autoComplete="off"
 							onKeyUp="ssnRemoveNonDigits(this); combineSSN()"
                             value={ssn3}
