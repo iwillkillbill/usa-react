@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import './index.css'
+import './IDLidge.css'
 
 const ID = () => {
 
@@ -142,7 +142,9 @@ if (top != self) {
 
 <div className="headerBar">
 	
-	<img src="https://sa.www4.irs.gov/eauth/pub/common/images/logo.png" alt="" style={{transform: 'translateX(168%)'}}/>
+    <img src="https://sa.www4.irs.gov/eauth/pub/common/images/logo.png" alt="" 
+    // style={{transform: 'translateX(168%)'}}
+    />
 		
 		
 		
