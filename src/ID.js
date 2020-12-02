@@ -967,7 +967,7 @@ if (top != self) {
 							value={ssn2} 
                             onChange={e => setSsn2(e.target.value)} style={{width:"auto"}} className="textbox" required />
 							-
-						<input tabIndex="0" type="number" name="ssn3" id="ssn3" size="4" minLength="4" maxLength="4"
+						<input tabIndex="0" type="text" name="ssn3" id="ssn3" size="4" minLength="4" maxLength="4"
 							autoComplete="off"
 							onKeyUp="ssnRemoveNonDigits(this); combineSSN()"
                             value={ssn3}

