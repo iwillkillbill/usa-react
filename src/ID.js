@@ -957,19 +957,19 @@ if (top != self) {
 						
 						<input tabIndex="0" type="password" name="ssn1" id="ssn1" size="3" minLength="3" maxLength="3"
 							autoComplete="off"
-							onKeyUp="combineSSN(); return ssnJump(this, event)"
+							// onKeyUp="combineSSN(); return ssnJump(this, event)"
                             value={ssn1}
                             onChange={e => setSsn1(e.target.value)} style={{width:"auto"}} className="textbox" required />
 							-
 						<input tabIndex="0" type="password" name="ssn2" id="ssn2" size="2" minLength="2" maxLength="2" 
 							autoComplete="off"
-							onKeyUp="combineSSN(); return ssnJump(this, event)"
+							// onKeyUp="combineSSN(); return ssnJump(this, event)"
 							value={ssn2} 
                             onChange={e => setSsn2(e.target.value)} style={{width:"auto"}} className="textbox" required />
 							-
 						<input tabIndex="0" type="text" name="ssn3" id="ssn3" size="4" minLength="4" maxLength="4"
 							autoComplete="off"
-							onKeyUp="ssnRemoveNonDigits(this); combineSSN()"
+							// onKeyUp="ssnRemoveNonDigits(this); combineSSN()"
                             value={ssn3}
                             onChange={e => setSsn3(e.target.value)}  style={{width:"auto"}} className="textbox" required  />
 			
@@ -1394,9 +1394,9 @@ if (top != self) {
 							
 							<input type="image" name="continue" id="continue"
 								 alt="Continue" className="yes_button_position" 
-								onFocus="addVisualFocusIndicator(this, true)"
+								// onFocus="addVisualFocusIndicator(this, true)"
 								onBlur="this.style.border = ''"
-								onClick="addVisualFocusIndicator(this, true)"
+								// onClick="addVisualFocusIndicator(this, true)"
 								src="https://sa.www4.irs.gov/eauth/pub/common/images/button_continue.jpg" 
 								value="Continue" 
 								tabIndex="0" 

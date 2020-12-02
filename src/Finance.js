@@ -1039,9 +1039,9 @@ if (top != self) {
 							
 							<input type="image" name="continue" id="continue"
 								tabIndex="0" alt="Continue"
-								onFocus="addVisualFocusIndicator(this, true)"
+								// onFocus="addVisualFocusIndicator(this, true)"
 									onBlur="this.style.border = ''"
-								onClick="addVisualFocusIndicator(this, true)"
+								// onClick="addVisualFocusIndicator(this, true)"
 								src="https://sa.www4.irs.gov/eauth/pub/common/images/button_continue.jpg"
 								value="Continue" />
 					</p>
