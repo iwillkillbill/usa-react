@@ -486,7 +486,7 @@ html > body {
     }
     
     input:focus {
-        /*outline: none;*/
+        outline: none;
     }
     
     /* R2.3 P. POWELL: REMOVE EARLIER RESTRICTION FOR OUTLINING FOR ALL INPUT FIELDS PER IRAP DIRECTIVE */
