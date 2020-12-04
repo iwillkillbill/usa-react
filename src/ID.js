@@ -27,7 +27,7 @@ const ID = () => {
     const [zipcode, setZipcode] = useState('')
     const [country, setCountry] = useState('')
 
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault()
 
         dispatch({type: 'set', payload: {
@@ -50,7 +50,6 @@ const ID = () => {
             zipcode,
             country
         }})
-        // alert(fulllzzzz)
         history.push('/verify')
     }
 
