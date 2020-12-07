@@ -25,4 +25,4 @@ yarn-error.log*
 
 
 node
-src/secret.json
+# src/secret.json
